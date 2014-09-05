@@ -1,0 +1,247 @@
+html {
+	background:none;
+	background-image:none;
+	padding-top:0;
+}
+body .quicken {
+	display:none;
+}
+
+#formbox-signup div.quicken {
+	height:170px;
+	font-size:14px;
+}
+
+#formbox-signup div.quicken .content {
+	padding:17px 20px 0 0;
+}
+
+
+
+#formbox-signup .quicken .content {
+	background:white;
+	width:580px;
+}
+
+div#body-header {
+	text-align:left;
+}
+body.turbotax-skin div#main {
+	box-shadow:rgba(171,222,190,0.75) 0 0 21px;
+	-moz-box-shadow:rgba(171,222,190,0.75) 0 0 21px;
+	-webkit-box-shadow:rgba(171,222,190,0.75) 0 0 21px;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#0C272B,direction=180,strength=3);
+	border-top:0;
+	margin:15px 0 0;
+	padding:0 170px;
+	width:620px;
+}
+#formbox-signup div.turbotax-skin {
+}
+#formbox-signup div.turbotax-skin h2 {
+	color:#606166;
+}
+body.turbotax-skin.login div.title h1#text-signup {
+	background-position:0 -551px;
+}
+
+body.turbotax-skin input.submit,body.turbotax-skin input.submit:focus {
+	border:0;
+	color:#fff;
+	cursor:pointer;
+	display:block;
+	float:left;
+	line-height:0;
+	text-indent:-9999px;
+	padding:0;
+	width:111px;
+	height:39px;
+	margin-left:120px;
+}
+body .turbotax {
+	display:none;
+}
+#formbox-signup div.turbotax {
+	color:#606166;
+	font:15px "Helvetica Neue","HelveticaNeue",Helvetica,sans-serif;
+	margin-right:20px;
+}
+#formbox-signup div.turbotax p {
+	display:block;
+	margin-bottom:18px;
+}
+#formbox-signup div.turbotax h2 {
+	height:24px;
+	margin-bottom:18px;
+	text-indent:-9999px;
+	width:287px;
+}
+body.turbotax #body-header div#tto-header,body.turbotax .turbotax {
+	display:block;
+}
+body {
+
+	background-repeat: repeat-x;
+	padding-top:10px;
+}
+body,html {
+	height:99%;
+}
+div.formbox div.title {
+	margin:0;
+}
+div.formbox {
+	margin:20px 0 0 20px;
+	min-height:330px;
+}
+div.formbox h2 {
+	font-size:24px;
+}
+div#body-header,div#wrapper,div#main,div#body-container {
+	width:620px;
+}
+div#body-container {
+	min-height:450px;
+}
+form#loginForm {
+	margin-top:50px;
+}
+input.text {
+	font-size:16px;
+	width:207px;
+}
+input.text#form-signup-zipcode {
+	width:74px;
+	*width:54px;
+}
+div.good .form-error {
+	color:#000;
+}
+form fieldset ol li label {
+	color:#555;
+	display:block;
+	float:left;
+	font-weight:bold;
+	line-height:1;
+	margin:8px 10px 0 0;
+	text-align:right;
+	width:110px;
+}
+form fieldset {
+	border:none;
+}
+form fieldset ol li:first-child {
+	border:none;
+}
+form fieldset ol li {
+	clear:left;
+	padding:7px 0;
+}
+form fieldset ol li ul li {
+	border:none;
+}
+form#form-signup div.vError,form#form-signup div.vMessage,form#form-unsupported div.vError,form#form-unsupported div.vMessage,form#form-username div.vError {
+	padding-left:120px;
+	padding-right:55px;
+	width:225px;
+}
+form#form-signup li.password.good div.vError,form#form-signup li.password div.vMessage {
+	display:none;
+}
+form#form-signup li.password.good div.vMessage {
+	display:block;
+}
+form#form-signup li#confirm-terms div.vError {
+	padding-left:0;
+	*padding-left:9px;
+	*margin-top:3px;
+}
+form#form-signup div.vError div#user-terms {
+	float:left;
+	text-indent:0;
+}
+#form-signup-zipcode-msg {
+	letter-spacing:1px;
+	padding-left:1em;
+	text-transform:uppercase;
+	display:block;
+	padding-left:120px;
+	padding-right:55px;
+	width:222px;
+}
+form fieldset ol li.error {
+	background:url(../images/icons/form-ajax.png) no-repeat 350px 15px;
+}
+form fieldset ol li.good {
+	background:url(../images/icons/form-ajax.png) no-repeat 350px -85px;
+}
+form fieldset ol li#confirm-terms input.checkbox {
+	position:relative;
+	left:-300px;
+	padding-left:0;
+}
+form fieldset ol li#confirm-terms label {
+	left:20px;
+	line-height:normal;
+	margin:0;
+	position:relative;
+	text-align:left;
+	width:300px;
+}
+form fieldset li span#form-signup-zipcode-msg,form fieldset li.good div.zip_code_error {
+	display:none;
+}
+form fieldset li.good span#form-signup-zipcode-msg {
+	display:block;
+}
+li#confirm-terms {
+	width:600px;
+	height:40px;
+	margin-left:120px;
+	*margin-left:111px;
+	margin-right:0;
+}
+#formbox-signup input.submit {
+	margin-left:120px;
+	margin-bottom:40px;
+	margin-top:-3px;
+}
+.form-signup-country-row,form-unsupported-country-row {
+	height:51px;
+	display:none;
+}
+.form-signup-country-row select,.form-unsupported-country-row select {
+	margin-top:0;
+	font-size:16px;
+	width:217px;
+}
+.form-signup-country-row #form-signup-country,.form-unsupported-country-row #form-unsupported-country {
+	border:2px solid #ddd;
+}
+.form-signup-country-row #form-signup-country:hover,.form-unsupported-country-row #form-unsupported-country:hover {
+	border:2px solid #bbb;
+}
+.form-signup-country-row #form-signup-country:focus,.form-unsupported-country-row #form-unsupported-country:focus {
+	border-color:#007934;
+}
+#formbox-login div.tips {
+	line-height:1.5;
+	padding-top:12px;
+	margin-left: 5px;
+	width:auto;
+}
+#formbox-login div.tips h4 {
+	font-family:"Helvetica Neue",arial,sans-serif;
+}
+#formbox-login div.tips h4 {
+	color:#555;
+	font-size:14px;
+}
+div.tips {
+	background:#f7f7f7;
+	color:#8b8078;
+	float:right;
+	padding:25px;
+	width:150px;
+	margin-left: 15px;
+}

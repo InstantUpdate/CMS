@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>frequency decoder - yepnope &amp; Modernizr dependency loading demo</title>       
+        <meta name="author"                     content="frequency decoder" />
+        <meta name="description"                content="Using yepnope and Modernizer to dynamically load dependencies for the HTML5 input range polyfill script" />
+        <meta http-equiv="imagetoolbar"         content="no" />     
+        <link rel="stylesheet" type="text/css" media="screen, projection" href="../css/demo.css" />
+        <!-- NOTE: I'm using a bespoke build of Modernizr 2.0.6, you should go build your own... http://www.modernizr.com/download/ -->        
+        <script src="http://www.frequency-decoder.com/demo/fd-slider/js/modernizr-custom.js"></script>        
+<script>   
+// Set up the yepnope (Modernizr.load) directives... 
+Modernizr.load([
+{
+    // Test if Input Range is supported using Modernizr
+    test: Modernizr.inputtypes.range,
+    // If ranges are not supported, load the slider script and CSS file
+    nope: [     
+      // The slider CSS file
+      'css!http://www.frequency-decoder.com/demo/fd-slider/css/fd-slider.css'       
+      // Javascript file for slider
+     ,'http://www.frequency-decoder.com/demo/fd-slider/js/fd-slider.js'     
+    ],
+    callback: function(id, testResult) {
+        // If the slider file has loaded then fire the onDomReady event        
+        if("fdSlider" in window && typeof (fdSlider.onDomReady) != "undefined") {
+                try { fdSlider.onDomReady(); } catch(err) {};
+        };
+    }
+}
+]);
+</script>
+</head>
+<body>
+<div id="article-wrapper">
+  <form action="" method="post">
+    <h1>HTML5 range polyfill demo</h1>
+    <h2>Modernizr/yepnope dependency loading</h2>
+    <h3>&#8230;as usual, &#8220;View Source&#8221; is your friend!</h3>
+    <fieldset>            
+      <legend>HTML5 input type="range" polyfill tests</legend>
+      <p><a href="http://www.modernizr.com/">Modernizr</a> has been used to load the required stylesheet and Javascript file <em>only</em> if the browser does not recognise the HTML5 input &#8220;range&#8221; state.</p>    
+      
+      <label for="html5shim-1">Range: -10 to 10 in steps of 0.2</label>
+      <p><input name="html5shim-1" id="html5shim-1" type="range" min="-10" max="10" step="0.20" title="Range: -10 to 10 in steps of 0.2" value="" /></p>     
+      
+      <label for="html5shim-2">Range: 0 to 100 in steps of 1</label>
+      <p><input name="html5shim-2" id="html5shim-2" type="range" step="1" title="Range: 0 to 100 in steps of 1" value="75" /></p>      
+      
+      <label for="html5shim-3">Range: 100 to 0 in steps of 1</label>
+      <p><input name="html5shim-3" id="html5shim-3" type="range" min="100" max="0" step="1" title="Range: 100 to 0 in steps of 1" value="" /></p>
+      
+      <label for="html5shim-4">Range: 100 to 0 in steps of 1</label>
+      <p><input name="html5shim-4" id="html5shim-4" type="range" min="100" max="0" step="1" title="Range: 100 to 0 in steps of 1" value="" /></p>
+    </fieldset>    
+  </form>
+</div>
+</body>
+</html>

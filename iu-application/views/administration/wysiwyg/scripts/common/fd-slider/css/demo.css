@@ -1,0 +1,213 @@
+/* Generic CSS used for the slider demo */
+body
+        {
+        background:#fff;
+        color:#333;
+        text-align:center;
+        font-size:14px;
+        font-family:verdana,arial,sans-serif;
+        color:#545454;
+        padding:0;
+        margin:0;
+        border:0;
+        line-height:1.6em;
+        text-shadow:0 1px 0 #fff;
+        }
+h1,
+legend
+        { 
+        font-weight:lighter;
+        font-family:georgia, times new roman, times, serif;
+        text-align:center;
+        color:#111;
+        font-size:2em;
+        }
+h2
+        {
+        font-weight:lighter;
+        font-family:verdana,arial,sans-serif;
+        text-align:center;
+        margin:1em 0;
+        color:#333;
+        text-transform:uppercase;
+        letter-spacing:1px;
+        font-size:1.2em;
+        }
+h3
+        {
+        font-weight:lighter;
+        font-family:georgia, times new roman, times, serif;
+        text-align:center;
+        margin:1em 0;
+        color:#868686;
+        font-style:oblique;
+        font-size:1.2em;
+        }
+code 
+        { 
+        font-family:'andale mono', 'lucida console', 'courier new', monospace;
+        font-size:12px;
+        color:#222;
+        text-transform:none;
+        }
+kbd
+        {
+        display: inline;
+	display: inline-block;
+	min-width:1em;
+	padding:.2em .3em .3em .3em;
+	font: bold .85em/1em "Lucida Grande", Lucida, Arial, sans-serif;
+	text-align: center;   		
+	text-decoration: none;
+	-moz-border-radius: .3em;
+	-webkit-border-radius: .3em;
+	border-radius: .3em;  	
+	cursor: default;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+        background: rgb(230, 230, 230);
+	background: -moz-linear-gradient(top, rgb(230,230,230), rgb(245,245,245));
+	background: -webkit-gradient(linear, left top, left bottom, from(rgb(230,230,230)), to(rgb(245,245,245)));
+	color:#222;
+        color: rgb(80,80,80);
+	text-shadow: 0 1px 0 rgb(255,255,255);
+	border:1px solid #ccc;
+	border-right:1px solid #aaa;
+	border-bottom:1px solid #aaa;
+	-moz-box-shadow: 0 2px 3px rgba(220,220,220,.8);
+	-webkit-box-shadow: 0 2px 3px rgba(220,220,220,.8);
+        box-shadow: 0 2px 3px rgba(220,220,220,.8);
+        }
+p
+        {
+        line-height:1.6em;
+        margin:0 0 1.6em 0;
+        text-align:left;
+        }
+dfn
+        {
+        border-bottom:1px dotted #222;
+        cursor:help;
+        font-style:normal;
+        }
+#article-wrapper
+        {
+        text-align:center;
+        border:4px solid #ccc;
+        background:#fcfcfc;
+        width:80%;
+        min-width:320px;
+        max-width:1200px;
+        margin:2em auto;
+        padding:1em;
+        -webkit-border-radius:8px;
+        -moz-border-radius:8px;
+        border-radius:8px;
+        }
+fieldset
+        {
+        margin:0 0 18px 0;
+        padding:1em;      
+        text-align:left;  
+        }
+form > fieldset
+        {
+        border:2px solid #ccc;
+        -webkit-border-radius:6px;
+        -moz-border-radius:6px;
+        border-radius:6px;
+        }
+fieldset:last-of-type
+        {
+        margin:0;
+        }
+legend
+        {
+        font-size:16px;
+        margin-bottom:1em\9;
+        }
+form
+        {
+        margin:0 auto 1.6em 0;
+        padding:0;
+        text-align:center;
+        margin:0 auto;
+        }
+input
+        {
+        border:1px solid #ccc;
+        border-top:1px solid #888;
+        border-left:1px solid #888;
+        width:4em;
+        margin-left:0.2em;
+        }
+label
+        {
+        display:block;
+        padding:0;
+        margin:0 0 0.2em 0;
+        text-align:left;
+        font-weight:bold;
+        color:#5c5c5c;
+        }
+a
+        {
+        font-weight:normal;
+        outline:none;
+        }
+a:link,
+a:visited
+        {
+        color:#333;
+        text-decoration:underline;
+        }
+a:hover,
+a:focus,
+a:active,
+a:hover code,
+a:focus code,
+a:active code
+        {
+        color:#fff !important;
+        text-decoration:none;
+        background:#000;
+        text-shadow:0 1px 0 #444;
+        }
+#fd-slider-describedby 
+        {
+        padding:1em;
+        border:3px solid #a84444;
+        background:#fff;
+        -webkit-border-radius:8px;
+        -moz-border-radius:8px;
+        border-radius:8px;
+        }
+input[type="range"]
+        {
+        width:100%;
+        }
+#html5shim-2-out
+        {
+        font-weight:normal;
+        font-style:italic;
+        }
+/* The following classes are given to the vertical sliders to set their height */        
+span.v-s
+        {
+        height:300px;
+        }
+span.v-s2
+        {
+        height:160px;
+        }
+#html5shim-4
+        {
+        width:20px;
+        height:400px;
+        }
+.visu
+        {
+        font:normal 3em impact, helvetica, sans serif;
+        color:#6cc;
+        }

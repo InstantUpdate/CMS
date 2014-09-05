@@ -1,0 +1,294 @@
+<!doctype html>
+<!-- The script automatically adds the class "oldie" to the html element in IE < 9 -->
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>frequency decoder - accessible, unobtrusive slider/HTML5 polyfill script demo</title>       
+        <meta name="author"                     content="frequency decoder" />
+        <meta name="description"                content="An accessible, unobtrusive Slider/HTML5 Input Range polyfill script" />
+        <meta http-equiv="imagetoolbar"         content="no" />
+        
+        <link rel="stylesheet" type="text/css" media="screen, projection" href="./css/fd-slider.css" />
+        <link rel="stylesheet" type="text/css" media="screen, projection" href="./css/demo.css" />   
+        <script src="./js/fd-slider.js"></script>
+</head>
+<body>
+<div id="article-wrapper">
+  <form action="" method="post">
+    <h1>Accessible, Unobtrusive &#8220;Slider/HTML5 range polyfill&#8221; Demo</h1>
+    <h2>Keyboard Controls</h2>
+    <!-- The following paragraph is used to set the ARIA describedby property -->
+    <p id="fd-slider-describedby">Whenever a slider has focus, the keys <kbd title="Left arrow key">&larr;</kbd>, <kbd title="Right arrow key">&rarr;</kbd>, <kbd title="Up arrow key">&uarr;</kbd>, <kbd title="Down arrow key">&darr;</kbd>, <kbd title="Insert key">Ins</kbd> and <kbd title="Delete key">Del</kbd> can be used to control the slider handle (pressing either the <kbd>Page up</kbd> or <kbd>Page down</kbd> keys or <kbd title="CTRL key">CTRL</kbd> and an arrow key will move the handle by two steps at a time), the <kbd title="Home key">Home</kbd> key to set the slider at the minimum value and the <kbd title="End key">End</kbd> key to set the slider at the maximum value.</p>   
+    <h2>Mixed HTML5 Polyfill &amp; Javascript API Creation Demos</h2>
+    <h3>&#8230;as usual, &#8220;View Source&#8221; is your friend</h3>
+
+    <fieldset>            
+      <legend>HTML5 input type="range" polyfill tests</legend>
+      <p>When the <code>window.onload</code> event fires, the following input elements will be automatically converted into sliders <em>only</em> if the browser does not recognise the HTML5 input &#8220;range&#8221; state.</p>    
+      <p><em>Please Note</em>: At the time of writing, only webkit and Opera support the input range state and even then, they do not appear to fully support vertical ranges (webkit) or ranges that have a minimum value greater than the maximum value (both webkit and Opera).</p>
+      <!--
+      
+      Sliders #1, #2 & #3 created automatically by the script on page load only if the browser does not support type="range".
+      The script will use the "min", "max" and "step" attributes assigned to the input to create the slider with the
+      appropriate scale.
+      
+      Slider #1: "min", "max" & "step" attributes given
+      
+      -->
+      <label for="html5shim-1">Range: -10 to 10 in steps of 0.2</label>
+      <p>
+        <input name="html5shim-1" id="html5shim-1" type="range" min="-10" max="10" step="0.20" title="Range: -10 to 10 in steps of 0.2" value="8.2" />
+        <a href="#" onclick="document.getElementById('html5shim-1').stepUp(); return false;"><code>stepUp()</code></a> or
+        <a href="#" onclick="document.getElementById('html5shim-1').stepDown(); return false;"><code>stepDown()</code></a>
+      </p>     
+      <!--
+      
+      Slider #2: No "min" or "max" attributes given (they default to 0 and 100 respectivey) but the required "step" attribute set to "1".
+      
+      Additionally, an onchange event has been set to test if the script honours HTML events set on the original input.
+      
+      -->   
+      <p>The following Input has an <code>onchange</code> event that updates the value of a <code>span</code> positioned within the associated <code>label</code>.</p>
+      <label for="html5shim-2">Range: 0 to 100 in steps of 1 <span id="html5shim-2-out"></span></label>
+      <p>
+        <input name="html5shim-2" id="html5shim-2" type="range" step="1" title="Range: 0 to 100 in steps of 1" value="75" /> 
+        <a href="#" onclick="document.getElementById('html5shim-2').stepUp(); return false;"><code>stepUp()</code></a> or
+        <a href="#" onclick="document.getElementById('html5shim-2').stepDown(); return false;"><code>stepDown()</code></a>        
+      </p>  
+      <script>
+      // Add an onchange event to the input element that updates a span with the input value      
+      fdSlider.addEvent(document.getElementById("html5shim-2"), "change", function(e) {
+        document.getElementById("html5shim-2-out").innerHTML = "(Current Value: " + document.getElementById("html5shim-2").value + ")";
+      });
+      </script>    
+      <!--
+      
+      Slider #3: The input element has been given the "data-fd-slider-vertical" custom data- attribute which makes the script create 
+      a vertical slider. Additionally, the value of this attribute is given to the slider as a classname - in this case, the class "v-s" 
+      which makes the slider inherit a height of 300px. 
+      
+      -->
+      <p>The following input element has been assigned a custom data- attribute named <code>data-fd-slider-vertical</code> which tells the script to create a vertical slider.
+         Additionally, the value of the <code>data-fd-slider-vertical</code> attribute, in this case &#8220;v-s&#8221;, is added as a classname to the associated slider &ndash; this enables you set the slider height using a CSS classname (which, in this case, sets a height of 300 pixels).</p>
+      <label for="html5shim-3">Range: 100 to 0 in steps of 1</label>
+      <p>
+        <input name="html5shim-3" id="html5shim-3" data-fd-slider-vertical="v-s" type="range" min="100" max="0" step="1" title="Range: 100 to 0 in steps of 1" value="" /> 
+        <a href="#" onclick="document.getElementById('html5shim-3').stepUp(); return false;"><code>stepUp()</code></a>
+        <a href="#" onclick="document.getElementById('html5shim-3').stepDown(); return false;"><code>stepDown()</code></a>
+      </p>
+      <!--
+      
+      Slider #4: CSS has been used to make the following input element 400 pixels in height and 20 pixels wide, which instructs
+      the script automatically create a vertical slider
+      
+      -->
+      <p>CSS has been used to make the following input element 400 pixels in height and 20 pixels wide, which instructs the script to create a vertical slider.</p>      
+      <label for="html5shim-4">Range: 100 to 0 in steps of 1</label>
+      <p>
+        <input name="html5shim-4" id="html5shim-4" type="range" min="100" max="0" step="1" title="Range: 100 to 0 in steps of 1" value="" /> 
+        <a href="#" onclick="document.getElementById('html5shim-4').stepUp(); return false;"><code>stepUp()</code></a>
+        <a href="#" onclick="document.getElementById('html5shim-4').stepDown(); return false;"><code>stepDown()</code></a>
+      </p>      
+    </fieldset>    
+    <!--
+    
+    Sliders created using the Javascript API from here on in i.e. no more HTML5 range polyfills from this point on.
+    
+    -->
+    <fieldset>
+      <legend>Javascript initialisation tests</legend>      
+      <p>The first three sliders show the three different &#8220;handle to clickpoint&#8221; animation styles: <em>timed</em>, <em>jump</em> <span class="amp">&</span> <em>tween</em> respectively. Additionally, the third slider has the &#8220;forceValue&#8221; parameter set to TRUE.</p>      
+      <label for="inputTest3">Range: -10 to 10 in steps of 0.5</label>
+      <p>
+        <!-- Here's the form element we will associate the first slider with. -->
+        <input name="inputTest3" id="inputTest3" type="text" title="Range: -10 to 10 in steps of 0.5" value=""  maxlength="6" />
+        <a href="#" onclick="fdSlider.disable('inputTest3'); return false;">Disable</a>
+        <a href="#" onclick="fdSlider.enable('inputTest3'); return false;">Enable</a>
+      </p>
+      <script>
+      // Call the fdSlider.createSlider method, passing in the required options
+      fdSlider.createSlider({
+        // Associate an input
+        inp:document.getElementById("inputTest3"),
+        // Declare a step (quoting the value means the precision will be calculated as 2 decimal points
+        // e.g. the "50" part of "0.50") which is a short-cut way of setting the precision without
+        // actually using the "precision" parameter
+        step:"0.50", 
+        // Declare a maxStep (for keyboard users)
+        maxStep:2,
+        // Min & Max values
+        min:-10,
+        max:10,
+        // Use the "timed increments to click point" animation
+        animation:"timed"
+        });
+      </script> 
+      <p>The following slider has a 50:13 scale set, which means that when the drag handle is at the 50% mark, then the slider value should be 13.</p>
+      <label for="inputTest5">Range: 5 to 15 in steps of 0.2 with a (50:13) scale</label>
+      <p>
+        <!-- Here's the form element we will associate the second slider with. -->
+        <input name="inputTest5" id="inputTest5" type="text" title="Range: 5 to 15 in steps of 0.2 with a (50:13) scale" value=""  maxlength="6" />
+      </p>
+      <script>
+      fdSlider.createSlider({
+        // Associate an input
+        inp:document.getElementById("inputTest5"),
+        // Declare a step
+        step:0.2, 
+        // Declare a maxStep (for keyboard users)
+        maxStep:0.4,
+        // Min value
+        min:5,
+        // Max value
+        max:15,
+        // Define a scale (multiple points supported, I'm just using one for the demo)
+        scale:{
+                // At 50% of the slider scale, the value should be 13
+                "50":"13"       
+        },
+        // Use the "jump to click point" animation
+        animation:"jump"
+        });
+      </script>
+      <p>The following slider has the &#8220;forceValue&#8221; parameter set to TRUE, which forces the associated text input to show a valid value. Two callback functions have been defined for the <code>create</code> and <code>change</code> slider events. The <code>create</code> callback (fired once whenever the slider has been created) injects a span into the DOM and hides the associated input, while the <code>change</code> callback simply updates this <code>span</code> with the current slider value.</p>
+      <label for="inputTest6" id="inputTest6Label">Range: 5 to 15 in steps of 0.2</label>
+      <p>
+        <!-- Here's the form element we will associate the third slider with. -->
+        <input name="inputTest6" id="inputTest6" type="text" title="Range: 5 to 15 in steps of 0.2" value=""  maxlength="6" />
+      </p>
+      <script>
+      // Create our callback functions
+      
+      // createScaffold, used with the "create" event
+      function createScaffold(cbObj) {
+          // Create a span 
+          var span  = document.createElement("span");
+          // Use the input ID to create an identifiable ID for the span    
+          span.id = cbObj.elem.id + "Visu";
+          // Give it a className
+          span.className = "visu";
+          // Add it just after the input in the DOM    
+          cbObj.elem.parentNode.appendChild(span);
+          // Hide the associated input
+          cbObj.elem.style.display = "none";
+          // Update the span we just added 
+          updateValue(cbObj);          
+      }
+      // updateValue, used with the "change" event
+      function updateValue(cbObj) {
+          // Grab the span element and update its contents
+          document.getElementById(cbObj.elem.id + "Visu").innerHTML = cbObj.value;
+      }
+      // Create the slider
+      fdSlider.createSlider({
+        // Associate an input
+        inp:document.getElementById("inputTest6"),
+        // Declare a step
+        step:0.2, 
+        // Declare a maxStep (for keyboard users)
+        maxStep:0.4,
+        // Min value
+        min:5,
+        // Max value
+        max:15,
+        // Use the "tween to click point" animation
+        animation:"tween",
+        // Force the associated input to have a valid value
+        forceValue:true,
+        // Pass the two previously defined functions for the "create" & "change" 
+        // events
+        callbacks:{
+                // Pass an Array of functions - if multiple functions declared, 
+                // they will be called in sequence
+                "create":[createScaffold],
+                "change":[updateValue]
+        }
+        });
+      </script> 
+      <p>The following slider has been associated with a <code>&lt;select&gt;</code>.</p> 
+      <label for="selectTest1" id="selectTest1Label">Select List with eight options</label>
+      <p>
+        <!-- Here's the form element - a select list in this case - that we will associate the forth and final slider with. -->
+        <select name="selectTest1" id="selectTest1">
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="4">Four</option>
+          <option value="8">Eight</option>
+          <option value="16">Sixteen</option>
+          <option value="32">Thirty Two</option>
+          <option value="64">Sixty Four</option>
+          <option value="128">One Hundred and Twenty Eight</option>
+          <option value="256">Two Hundred and Fifty Six</option>
+        </select>  
+        <a href="#" onclick="fdSlider.disable('selectTest1'); return false;">Disable</a>
+        <a href="#" onclick="fdSlider.enable('selectTest1'); return false;">Enable</a>
+      </p>
+      <script>
+      fdSlider.createSlider({
+        // Associate the select list
+        inp:document.getElementById("selectTest1"),
+        // Use the tween animation
+        animation:"tween",
+        // Keep the form element, in this case a select list, visible
+        hideInput:false,
+        // Create a vertical slider
+        vertical:true,
+        // Give it the className "v-s2" which will make the slider 160px in height
+        classNames:"v-s2"
+        });
+      </script>         
+    </fieldset> 
+    <fieldset>
+      <legend>Dynamic creation test</legend>
+      <p>Testing the dynamic creation of non-polyfill sliders.</p>
+      <div id="corral">
+        <input name="dyn-1" id="dyn-1" type="text" title="Range: 5 to 15 in steps of 0.2" value=""  maxlength="6" />
+      </div>
+      <button onclick="createNewSlider(); return false;">Create New Slider</button>
+      <script>
+// A quick & dirty function to create sliders dynamically
+function createNewSlider() {
+        var id     = "dyn-" + createNewSlider.idCnt,
+            // Check input element exists already
+            inpChk = document.getElementById(id),
+            // Create new input element if needs be
+            newInp = inpChk ? inpChk : document.createElement("input");
+            
+        createNewSlider.idCnt++;
+        
+        // Set attributes and add to DOM if needs be            
+        if(!inpChk) {
+                newInp.type             = "text";
+                newInp.id               = id;
+                newInp.name             = id;
+                newInp.maxlength        = 6;
+                
+                document.getElementById("corral").appendChild(newInp);
+        };
+        
+        // Create and associate a slider with the input element
+        fdSlider.createSlider({
+                // Associate the select list
+                inp:newInp,
+                // Use the tween animation
+                animation:"tween",
+                // Keep the form element hidden
+                hideInput:true,
+                // Set min, max and step
+                max:15,
+                min:5,
+                step:0.2
+        });        
+};
+
+createNewSlider.idCnt = 1;
+
+// Call the function immediately to convert the input element
+// already present within the HTML
+createNewSlider();      
+      </script>
+    </fieldset>      
+  </form>
+</div>
+</body>
+</html>

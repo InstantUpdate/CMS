@@ -1,0 +1,3 @@
+<h2>Welcome!</h2>
+<p>All support and feature requests will be handled through <a href="http://my.instant-update.com" target="_blank">our community</a>.</p>
+

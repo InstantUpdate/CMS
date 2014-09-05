@@ -1,0 +1,9 @@
+body {
+	behavior: url("csshover3.htc");
+}
+
+* html #header{
+                position: absolute; left: 0px; top: 0px;
+                left: expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+                top: expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}

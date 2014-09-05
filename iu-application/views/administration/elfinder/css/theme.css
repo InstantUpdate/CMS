@@ -1,0 +1,46 @@
+/**
+ * MacOS X like theme for elFinder.
+ * Required jquery ui "smoothness" theme.
+ *
+ * @author Dmitry (dio) Levashov
+ **/
+
+/* dialogs */
+.std42-dialog, .std42-dialog .ui-widget-content { background-color:#ededed; background-image:none; background-clip: content-box; }
+
+/* navbar */
+.elfinder .elfinder-navbar { background:#fff; }
+.elfinder-navbar .ui-state-hover  { background:transparent; border-color:transparent; }
+.elfinder-navbar .ui-state-active { background: #DEEEFA; color:#777; }
+/* disabled elfinder */
+.elfinder-disabled .elfinder-navbar .ui-state-active { background: #dadada; border-color:#aaa; color:#777; }
+.elfinder-toolbar {border-bottom:1px #ccc solid; padding-bottom: 32px; margin-bottom: 12px;}
+
+/* current directory */
+/* selected file in "icons" view */
+.elfinder-cwd-view-icons .elfinder-cwd-file .ui-state-hover { background:#ccc; }
+/* list view*/
+.elfinder-cwd table tr:nth-child(odd) { background-color:#edf3fe; }
+.elfinder-cwd table tr { border-top:1px solid #fff; }
+
+/* common selected background/color */
+.elfinder-cwd-view-icons .elfinder-cwd-file .elfinder-cwd-filename.ui-state-hover,
+.elfinder-cwd table td.ui-state-hover,
+.elfinder-button-menu .ui-state-hover { background: #DEEEFA; color:#777;}
+/* disabled elfinder */
+.elfinder-disabled .elfinder-cwd-view-icons .elfinder-cwd-file .elfinder-cwd-filename.ui-state-hover,
+.elfinder-disabled .elfinder-cwd table td.ui-state-hover { background:#dadada;}
+
+/* statusbar */
+.elfinder .elfinder-statusbar { font-size:11px; color:#555; display: none; }
+.elfinder .elfinder-statusbar a { text-decoration:none; font-size:11px; color:#555;  }
+
+
+.std42-dialog .elfinder-help, .std42-dialog .elfinder-help .ui-widget-content { background:#fff;}
+
+/* contextmenu */
+.elfinder-contextmenu .ui-state-hover { background: #DEEEFA; color:#777; }
+.elfinder-contextmenu .ui-state-hover .elfinder-contextmenu-arrow { background-image:url('../img/arrows-active.png'); }
+
+
+

@@ -1,0 +1,3 @@
+<h2>The database info is missing</h2>
+<p>Please edit file <strong>iu-application/config/database.php</strong> and set up your MySQL access data.</p>
+<p>To get more help on installation, check out <a href="http://my.instant-update.com/t/instant-update-installation/29" target="_blank">"Instant Update Installation" at our forums.</a>.</p>

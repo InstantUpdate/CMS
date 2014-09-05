@@ -1,0 +1,254 @@
+body{
+	
+	-webkit-overflow-scrolling: none;
+}
+
+#scroll_tip{
+	background: -moz-linear-gradient(top,  rgba(247,247,247,1) 0%, rgba(235,235,235,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,1)), color-stop(100%,rgba(235,235,235,1)));
+	background: -webkit-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(235,235,235,1) 100%);
+	background: -o-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(235,235,235,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(235,235,235,1) 100%);
+	background: linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(235,235,235,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ebebeb',GradientType=0 );
+	border: 1px solid #F3F3F3;
+	-moz-box-shadow: #D1D1D1 0px 1px 2px, rgba(63, 63, 63, 0.11) 0 2px 3px;
+	-webkit-box-shadow: #D1D1D1 0px 1px 2px, rgba(63, 63, 63, 0.11) 0 2px 3px;
+	box-shadow: #D1D1D1 0px 1px 2px, rgba(63, 63, 63, 0.11) 0 2px 3px;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=180, Color='#bdbdbd')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=180, Color='#bdbdbd');
+	zoom: 1;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.19);
+    transition: opacity 0.5s;
+	-moz-transition:opacity 0.5s; /* Firefox 4 */
+	-webkit-transition: opacity 0.5s; /* Safari and Chrome */
+	-o-transition: opacity 0.5s; /* Opera */
+}
+#scroll_tip {
+	position: absolute;
+	z-index: 1000;
+	padding: .2em 1em;
+	font-size: 12px;
+	opacity:0;
+}
+
+#scroll_tip:after, #scroll_tip.bottom:after, #scroll_tip.top:after, #scroll_tip.left:after, #scroll_tip.right:after {
+	content: "";
+	width: 0;
+	height: 0;
+	position: absolute;
+	border-style: solid;
+	border-color: #47a3da transparent;
+}
+
+#scroll_tip.bottom:after, #scroll_tip:after {
+	bottom: -9px;
+	left: 50%;
+	margin-left: -3px;
+	border-width: 8px 6px 0 6px;
+}
+#scroll_tip.top:after {
+	top: -9px;
+	left: 50%;
+	margin-left: -3px;
+	border-width: 8px 6px 0 6px;
+}
+#scroll_tip.right:after {
+	bottom: 45%;
+	right:-9px;
+	border-width: 8px 6px 0 6px;
+}
+#scroll_tip.left:after {
+    bottom: 45%;
+	left:-9px;
+	border-width: 8px 6px 0 6px;
+}
+
+
+#scroll_tip.scroll_tip_show
+{
+	opacity:1;
+}
+
+#scroll_back {
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	display: block;
+	cursor: pointer;
+	z-index: 99;
+	top:-200px;
+}
+
+#scroll_back span {
+	display: block;
+	margin: auto;
+	width:30%;
+	padding: .4em 0px;
+	position: relative;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+#scroll_back span:after {
+	content: "";
+	width: 0px;
+	height: 0px;
+	color: white;
+	border-style: solid;
+	border-color: #333 transparent;
+	border-width: 0px 6px 8px 6px;
+	position: absolute;
+	bottom: 30%;
+	margin-left: 20px;
+}
+
+/* menu */
+
+#scroll_menu
+{
+	height:100%;
+}
+
+#scroll_menu a
+{
+	text-decoration:none;
+}
+
+.scroll_menu {
+    
+    z-index:1000;
+    position: fixed;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display:none;
+}
+
+.scroll_right_menu
+{
+	right:0px;
+}
+
+.scroll_left_menu
+{
+	left:0px;	
+}
+ 
+#scroll_menu .nav, #scroll_show_menu_button, .scroll_menu li a ,.scroll_menu li span{
+	
+    -webkit-transition: background 0.1s ease-in-out;
+    -moz-transition: background 0.1s ease-in-out;
+    transition: background 0.1s ease-in-out;
+    display: block;
+    min-height: 2.6em;
+    min-width: 2.6em;
+    line-height: 2.6em;
+    text-align: center;
+    position: relative;
+    cursor:pointer;
+    margin:0px;
+}
+
+
+#scroll_show_menu_button
+{
+	position:fixed;
+	top:0px;
+	
+	cursor:pointer;
+	z-index:1100;
+}
+
+#scroll_menu .nav{
+	
+	position:fixed;
+	display:block;
+	cursor:pointer;
+	z-index:1100;
+	color:white;
+	right:0px;
+	font-size:12px;
+}
+
+#scroll_show_menu_button.left
+{
+	left:0px;
+}
+
+#scroll_show_menu_button.right
+{
+	right:0px;
+}
+
+.scroll_menu li
+{
+	position:relative;
+	transition: left 0.5s;
+	-moz-transition:left 0.5s; /* Firefox 4 */
+	-webkit-transition: left 0.5s; /* Safari and Chrome */
+	-o-transition: left 0.5s; /* Opera */
+	 
+}
+
+.scroll_menu li span
+{
+	position:absolute;
+	top:0px;
+	padding:0px;
+	margin:0px;
+	display:block;
+	white-space:nowrap;
+}
+
+.scroll_right_menu li span
+{
+	padding-right:1em;
+}
+
+.scroll_left_menu li span
+{
+	padding-left:1em;
+}
+
+.scroll_menu li span.scroll_span_show
+{
+	display:block;
+	width:auto;
+}
+
+
+@media all and (max-width: 600px){
+	
+	.scroll_menu li:not(.current) a:hover{ /* colors of hover element in menu */
+   	 	background: inherit;
+    	color: inherit;
+    	text-decoration:none;
+	}
+	
+	.scroll_menu li:hover, .scroll_menu li:hover a, .scroll_menu li:hover span{
+		
+		background: inherit;
+    	color: inherit;
+    	text-decoration:none;
+	}
+	
+	
+	#scroll_back span 
+	{
+		width:50%;
+		font-size:11px;
+	}
+	
+	#scroll_back span:after
+	{
+		display:none;
+	}
+}
+
+
+
+ 

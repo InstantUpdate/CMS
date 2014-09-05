@@ -1,0 +1,4 @@
+<h2>Trying to re-install?</h2>
+<p>It seems you are trying to install the same version you already have installed. It is possible, but for security reasons you need to manually empty out file named "installed.txt" which is located in the root folder of this application.</p>
+<p>Just find file "installed.txt", open it in your favorite text-only editor (like Notepad, Notepad++, Notepad2 for Windows or vi or vim for Linux based computers), delete everything inside and save it back.</p>
+<p>Re-upload the file to your web site and then click on "Selfcheck" option in the menu to retry the installation.</p>
