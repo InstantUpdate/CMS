@@ -117,7 +117,7 @@ var oEdit1 = new InnovaEditor("oEdit1");
 	oEdit1.height = 300;
 
 <?php
-    $plugins = PluginManager::all_loaded();
+/*    $plugins = PluginManager::all_loaded();
     $custom_btns = array();
     $custom_grp_btns = array();
     foreach ($plugins as $plugin)
@@ -126,18 +126,18 @@ var oEdit1 = new InnovaEditor("oEdit1");
     	$custom_btns[] = $ary;
     	$custom_grp_btns[] = $ary[0];
     }
-
+//*/
 ?>
 
 	oEdit1.arrCustomButtons = [];
 
     oEdit1.arrCustomButtons.push(["Save", "save(false)", "Save Content", "btnSave.gif"]);
 
-<?php foreach ($custom_btns as $btn): ?>
-	<?php if (!empty($btn)): ?>
-	oEdit1.arrCustomButtons.push(["<?php echo implode('", "', $btn); ?>"]);
-	<?php endif; ?>
-<?php endforeach; ?>
+<?php //foreach ($custom_btns as $btn): ?>
+	<?php //if (!empty($btn)): ?>
+	//oEdit1.arrCustomButtons.push(["<?php echo implode('", "', $btn); ?>"]);
+	<?php //endif; ?>
+<?php //endforeach; ?>
 
 
 
@@ -147,9 +147,9 @@ var oEdit1 = new InnovaEditor("oEdit1");
 		,["group3", "", ["LinkDialog", "ImageDialog", "YoutubeDialog", "HTML5Video", "TableDialog", "Emoticons"]]
 		,["group4", "", ["Undo", "Redo", "SourceDialog"]]
 		,["group5", "", ["Save"]]
-<?php if (!empty($custom_grp_btns)): ?>
-		,["group6", "", ["<?php echo implode('", "', $custom_grp_btns); ?>"]]
-<?php endif; ?>
+<?php //if (!empty($custom_grp_btns)): ?>
+		//,["group6", "", ["<?php echo implode('", "', $custom_grp_btns); ?>"]]
+<?php //endif; ?>
 	];//*/
 
 	oEdit1.css = '<?php echo root_url($template->base_url() . 'wysiwyg/scripts/style/awesome.css'); ?>';
