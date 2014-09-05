@@ -148,7 +148,7 @@ select[multiple] { border: 1px solid #DFE5E9; box-shadow: 0 0 0 2px #f4f4f4; -we
 
 .loginWrapper { margin: 28px 0 0 -170px; position: absolute; top: 50%; left: 50%; }
 .loginWrapper .widget { width: 340px; background: #f9f9f9; border: none; display: block; height: 236px; }
-.loginLogo { position: absolute; width: 236px; height: 60px; display: block; top: -25px; left: 50%; margin-left: -118px; }
+.loginLogo { position: absolute; width: 236px; height: 60px; display: block; top: -10px; left: 50%; margin-left: -118px; }
 .loginControl { border-top: 1px solid #fff; padding: 16px 14px; }
 .logMeIn { float: right; padding: 7px 20px 8px 20px!important; }
 .loginInput { width: 190px; float: right; margin-right: 14px!important; }
