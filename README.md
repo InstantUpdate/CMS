@@ -19,10 +19,10 @@ As HTML elements may have unique ID attribute set, our choice was to use HTML ID
 ----------
 
 
-[Download from Github][2] and follow these directions to install.
+[Download from Github][2] and follow these directions to install:
 
 http://my.instant-update.com/t/instant-update-installation/29
 
 
-  [1]: http://#
+  [1]: http://instant-update.com/cms/
   [2]: https://github.com/InstantUpdate/CMS/archive/master.zip
