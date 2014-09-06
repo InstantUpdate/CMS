@@ -16,8 +16,6 @@ As HTML elements may have unique ID attribute set, our choice was to use HTML ID
 -----------------------
 
 
-----------
-
 
 [Download from Github][2] and follow these directions to install:
 
