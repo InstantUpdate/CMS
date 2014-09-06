@@ -123,7 +123,7 @@ class Dashboard extends CS_Controller {
 		$this->templatemanager->assign('last_contents', $last_contents);
 
 		//count content updates (revisions)
-		$revs = ContentRevision::factory()->get()->result_count() - 5;
+		$revs = ContentRevision::factory()->count();
 		$this->templatemanager->assign('revisions', $revs);
 
 

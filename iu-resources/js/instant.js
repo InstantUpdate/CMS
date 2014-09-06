@@ -8,7 +8,7 @@ $iu$(document).ready(function() {
 	var can_edit = ($iu$.trim($iu$('body').data('canedit')) == 'true');
 
 	var menu_items = [];
-	menu_items.push({'class': 'iu-icon-toggle-off', 'href': 'javascript:;', 'content': 'Toggle Edit',onClick:function($li,num){ toggle_snapeditor(); } });
+	menu_items.push({'class': 'iu-icon-toggle-off', 'href': 'javascript:;', 'content': 'Toggle Edit',onClick:function($li,num){ toggle_snapeditor(true); } });
 	menu_items.push({'class': 'iu-icon-dashboard', 'href': IU_SITE_URL+'/administration/dashboard', 'content': 'Dashboard'});
 
 	if (can_edit)
@@ -73,6 +73,7 @@ $iu$(document).ready(function() {
 			$iu$.scrollTo($el, 500);
 			window.setTimeout(function() {
 				iu_highlight($el);
+				toggle_snapeditor(false);
 			}, 500);
 		}
 	}

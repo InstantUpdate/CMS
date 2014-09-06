@@ -81,8 +81,11 @@ function disable_snapeditor($el)
 	$el.removeClass('iu-editable');
 }
 
-function toggle_snapeditor()
+function toggle_snapeditor(highlight_all)
 {
+	if (highlight_all == "undefined")
+		highlight_all=true;
+
 	$iu$(".iu-content-html").each(function () {
 
 		var $this = $iu$(this);
@@ -114,9 +117,10 @@ function toggle_snapeditor()
 	{
 		$iu$('body').data('editing', 'true');
 		iu_growl('Editing is now enabled.', 'INFORMATION');
-		iu_highlight('.iu-editable');
 		$iu$('.iu-icon-toggle-off').addClass('iu-icon-toggle-on').removeClass('iu-icon-toggle-off');
 
+		if (highlight_all)
+			iu_highlight('.iu-editable');
 	}
 }
 

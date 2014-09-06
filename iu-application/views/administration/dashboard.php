@@ -185,7 +185,7 @@ $(document).ready(function() {
 
             	<!-- My tasks table widget -->
                 <div class="widget">
-                    <div class="title"><h6><span class="icon-loop2"></span> Latest content updates</h6><div class="num greyNum">revisions +<?php echo $revisions; ?></div></div>
+                    <div class="title"><h6><span class="icon-loop2"></span> Latest content updates</h6><div class="num greyNum">revisions: <?php echo $revisions; ?></div></div>
                     <table cellpadding="0" cellspacing="0" width="100%" class="sTable taskWidget">
                         <thead>
                             <tr>
