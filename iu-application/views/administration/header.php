@@ -130,6 +130,7 @@ $(window).bind('load', function() {
 					<?php if ($user->can('edit_settings')): ?>
                     <li><a href="<?php echo site_url('administration/settings'); ?>" title=""><span>Settings</span></a></li>
                     <?php endif; ?>
+                    <li><a href="<?php echo site_url('administration/statistics'); ?>" title=""><span>Statistics</span></a></li>
 					<li><a href="<?php echo site_url('administration/auth/logout'); ?>" title=""><span>Logout</span></a></li>
                     <li style="display: none !important;"><a title="" href="" class="iu-hide-menu">Hide menu</a></li>
 
