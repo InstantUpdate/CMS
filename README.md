@@ -24,5 +24,13 @@ As HTML elements may have unique ID attribute set, our choice was to use HTML ID
 http://my.instant-update.com/t/instant-update-installation/29
 
 
+**What we can see in future**
+1. Repeatable content - Repeat any div one after another. Good for news, articles, shopping items
+2. Gallery works similar to repeatable content just with images.
+3. Plugin system
+4. Contact form plugin
+5. Improved statistics
+
+
   [1]: http://instant-update.com/cms/
   [2]: https://github.com/InstantUpdate/CMS/archive/master.zip
