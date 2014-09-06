@@ -162,7 +162,6 @@ function choose_template()
 		                        	</select>
 	                        	</div>
 	                        	<div class="oneThree">&nbsp;</div>
-	                        	<div class="oneThree"><a href="javascript:;" onclick="choose_template();" class="blueNum2">Browse templates...</a></div>
                         	</div>
                         	<div class="clear"></div>
                     	</div>
