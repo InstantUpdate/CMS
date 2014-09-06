@@ -8,7 +8,7 @@ $first = Setting::value('custom_footer_text', '');
 $second = Setting::value('custom_footer_text2', '');
 
 if (empty($first))
-	$first = 'Content Management System provided by <a href="http://www.cubescripts.com/cms-script.php">Instant Update '.get_app_version().'</a>';
+	$first = 'Content Management System provided by <a href="http://instant-update.com">Instant Update '.get_app_version().'</a>';
 
 if (empty($second))
 	$second = 'You can brand Instant Update as your own software (Settings > Branding).';
