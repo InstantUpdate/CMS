@@ -63,7 +63,7 @@ class Connector extends CS_Controller {
 		//default attributes
 		$attributes = array(
 			array(
-			    'pattern' => '/iu-application|iu-resources|iu-system|install|license\.txt|installed\.txt|\.htaccess|\.htpasswd|\.tmb|\.quarantine/i',
+			    'pattern' => '/error_log|iu-application|iu-resources|iu-system|install|license\.txt|installed\.txt|\.htaccess|\.htpasswd|\.tmb|\.quarantine/i',
 			    'read' => false,
 			    'write' => false,
 			    'hidden' => true,
