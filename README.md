@@ -26,9 +26,9 @@ http://my.instant-update.com/t/instant-update-installation/29
 
 **What we can see in future**
 
-1. Repeatable content - Repeat any div one after another. Good for news, articles, shopping items
+1. Repeatable content - Repeat any div one after the other. Good for news, articles, shopping items and more.
 
-2. Gallery that works similar to repeatable content just with images.
+2. Gallery that works similar to repeatable content only with images.
  
 3. Plugin system.
  
