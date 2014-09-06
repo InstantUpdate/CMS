@@ -24,7 +24,7 @@ As HTML elements may have unique ID attribute set, our choice was to use HTML ID
 http://my.instant-update.com/t/instant-update-installation/29
 
 
-**What we can see in future**
+**What we can see in future:**
 
 1. Repeatable content - Repeat any div one after the other. Good for news, articles, shopping items and more.
 
