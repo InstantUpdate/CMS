@@ -80,53 +80,53 @@ $(document).ready(function() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $last15; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $last15; ?></a></td>
                                 <td>Unique visits in last 15 minutes</td>
                                 <td><span class="sparkline sparkline-live"><?php echo implode(',', $last15bymin); ?></span></td>
                             </tr>
                             <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $last4hrs; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $last4hrs; ?></a></td>
                                 <td>Unique visits in last 4 hours</td>
                                 <td><span class="sparkline"><?php echo implode(',', $last4hrsbymin); ?></span></td>
                             </tr>
                               <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $today; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $today; ?></a></td>
                                 <td>Unique visits today (<?php echo date(Setting::value('date_format', 'F j, Y')); ?>)</td>
                                 <td><span class="sparkline sparkline-live"><?php echo implode(',', $todaybymin); ?></span></td>
                             </tr>
                             <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $yesterday; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $yesterday; ?></a></td>
                                 <td>Unique visits yesterday (<?php echo date(Setting::value('date_format', 'F j, Y'), time() - 3600*24); ?>)</td>
                                 <td><span class="sparkline sparkline-live"><?php echo implode(',', $yesterdaybymin); ?></span></td>
                             </tr>
                             <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $lastweek; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $lastweek; ?></a></td>
                                 <td>Unique visits in last 7 days</td>
                                 <td><span class="sparkline sparkline-live"><?php echo implode(',', $lastweekbymin); ?></span></td>
                             </tr>
                              <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $lastmonth; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $lastmonth; ?></a></td>
                                 <td>Unique visits in last 30 days</td>
                                 <td><span class="sparkline sparkline-live"><?php echo implode(',', $lastmonthbymin); ?></span></td>
                             </tr>
                              <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $returning; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $returning; ?></a></td>
                                 <td>Returning visitors in last 30 days</td>
                                 <td>&nbsp;</td>
                             </tr>
                              <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $new_pages; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $new_pages; ?></a></td>
                                 <td>New pages in last 30 days</td>
                                 <td>&nbsp;</td>
                             </tr>
                              <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $countries; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $countries; ?></a></td>
                                 <td>New countries in last 30 days</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <?php if ($pagehits->result_count() > 0): ?>
                             <tr>
-                                <td align="center"><a href="javascript:;" title="" class="webStatsLink"><?php echo $pagehits->cnt; ?></a></td>
+                                <td align="center"><a href="<?php echo site_url('administration/statistics'); ?>" title="" class="webStatsLink"><?php echo $pagehits->cnt; ?></a></td>
                                 <td>Most popular page in last 7 days: <?php echo anchor($pagehits->page->uri, $pagehits->page->uri); ?></td>
                                 <td>&nbsp;</td>
                             </tr>
