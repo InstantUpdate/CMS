@@ -3,7 +3,7 @@
 function remove_user(id, name)
 {
 	iu_confirm('Are you sure you want to remove user "'+name+'"?', function() {
-		window.location.href = '<?php echo site_url(); ?>/administration/users/remove/'+id;
+		window.location.href = IU_SITE_URL + '/administration/users/remove/'+id;
 	});
 }
 

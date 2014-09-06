@@ -3,7 +3,7 @@
 function remove_userrole(id, name)
 {
 	iu_confirm('Are you sure you want to remove user role "'+name+'"?', function() {
-		window.location.href = '<?php echo site_url(); ?>/administration/userroles/remove/'+id;
+		window.location.href = IU_SITE_URL + '/administration/userroles/remove/'+id;
 	});
 }
 

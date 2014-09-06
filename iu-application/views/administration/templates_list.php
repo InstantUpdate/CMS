@@ -3,7 +3,7 @@
 function remove(id, name)
 {
 	iu_confirm('Are you sure you want to remove template file "'+name+'"?\n\n<br/><br/>Note that removing template from here won`t remove template file, only it`s reference in the database.', function() {
-		window.location.href = '<?php echo site_url(); ?>/administration/templates/remove/'+id;
+		window.location.href = IU_SITE_URL + '/administration/templates/remove/'+id;
 	});
 }
 

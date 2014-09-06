@@ -6,7 +6,7 @@ function remove(id, name)
 		return;
 
 	iu_confirm('Are you sure you want to remove content "'+name+'"?\n\n<br/><br/>Note that removing content will also remove all data associated to it!', function() {
-		window.location.href = '<?php echo site_url(); ?>/administration/contents/remove/'+id;
+		window.location.href = IU_SITE_URL + '/administration/contents/remove/'+id;
 	});
 }
 

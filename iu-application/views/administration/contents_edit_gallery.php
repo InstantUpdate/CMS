@@ -28,7 +28,7 @@ function edit_image_data(id)
 			if (title)
 			{
 				status('Saving...');
-				$.post('<?php echo site_url(); ?>/administration/ajax/gallery_save_image_data/'+id, {
+				$.post(IU_SITE_URL + '/administration/ajax/gallery_save_image_data/'+id, {
 					'title': title,
 					'desc': desc
 				}, function(json) {
@@ -69,7 +69,7 @@ function gallery_remove_image(id)
 {
 	iu_confirm('Are you sure you want to remove this image?\n\n<br/><br/>Note that this cannot be undone.', function() {
 		status('Deleting...');
-		$.get('<?php echo site_url(); ?>/administration/ajax/gallery_remove_image/'+id, function(data) {
+		$.get(IU_SITE_URL + '/administration/ajax/gallery_remove_image/'+id, function(data) {
 			if (data.status == 'OK')
 			{
 				$('#image_'+id).fadeOut('slow', function(){ $(this).remove(); });

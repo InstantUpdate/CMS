@@ -3,7 +3,7 @@
 function remove_gallery(id, name)
 {
 	iu_confirm('Are you sure you want to remove gallery content "'+name+'"?\n\n<br/><br/>Note that this cannot be undone.', function() {
-		window.location.href = '<?php echo site_url(); ?>/administration/contents/remove/'+id+'/galleries';
+		window.location.href = IU_SITE_URL + '/administration/contents/remove/'+id+'/galleries';
 	});
 }
 

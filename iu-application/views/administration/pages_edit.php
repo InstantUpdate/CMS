@@ -25,7 +25,7 @@ function remove_content(id, name)
 	else
 	{
 		iu_confirm('Are you sure you want to remove content "'+name+'"?\n\n<br/><br/>Note that removing content will remove it`s value from database!', function() {
-			window.location.href = '<?php echo site_url(); ?>/administration/contents/remove/'+id;
+			window.location.href = SITE_URL+'/administration/contents/remove/'+id;
 		});
 	}
 }

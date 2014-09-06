@@ -3,7 +3,7 @@
 function remove_page(id, name)
 {
 	iu_confirm('Are you sure you want to remove page "'+name+'"?\n\n<br/><br/>Note that removing page from here won`t remove page template file, only it`s reference in the database.', function() {
-		window.location.href = '<?php echo site_url(); ?>/administration/pages/remove/'+id;
+		window.location.href = IU_SITE_URL + '/administration/pages/remove/'+id;
 	});
 }
 

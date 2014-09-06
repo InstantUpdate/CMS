@@ -22,7 +22,7 @@ function save($goback)
 	}
 
 
-	$.post('<?=site_url("administration/contents/save".$saveid)?>', { html: $content, pid: <?php echo $page->id; ?>, editors: $editors }, function(data)
+	$.post('<?php echo site_url("administration/contents/save".$saveid); ?>', { html: $content, pid: <?php echo $page->id; ?>, editors: $editors }, function(data)
 	{
 		if (iu_in_iframe())
 		{
@@ -49,7 +49,7 @@ function save($goback)
 function repeatable_remove(id, name)
 {
 	iu_confirm('Are you sure you want to remove "'+name+'"?\n\n<br/><br/>Note that this cannot be undone.', function() {
-		window.location.href = '<?php echo site_url(); ?>/administration/repeatables/remove/'+id;
+		window.location.href = IU_SITE_URL + '/administration/repeatables/remove/'+id;
 	});
 }
 
