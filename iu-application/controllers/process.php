@@ -261,7 +261,7 @@ class Process extends CS_Controller {
 		$page->embed('iu-resources/js/jquery.js');
 
 		//embed jquery ui
-		$page->embed('iu-resources/js/jquery-ui.min.js');
+		//$page->embed('iu-resources/js/jquery-ui.min.js');
 		//$page->embed('iu-resources/css/bootstrap/bootstrap.css');
 
 		$page->embed('iu-resources/min/?g=base-css', 'css');
@@ -536,7 +536,11 @@ class Process extends CS_Controller {
 		}
 
 		if (Setting::value('use_tidy', 'yes')=='yes')
-			die(html_tidy($html_code));
+		{
+			$this->load->library('format');
+			die($this->format->HTML($html_code));
+			//die(html_tidy($html_code));
+		}
 		else
 			die($html_code);
 

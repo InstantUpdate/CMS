@@ -85,7 +85,7 @@ class Dashboard extends CS_Controller {
 
 		$pingset = Setting::factory('last_ping');
 		$lastping = (int)$pingset->value;
-		if (time()-$lastping > (3600*24*30))
+		if (time()-$lastping > (3600*24*7))
 			$ping = true;
 		
 		$pingset->value = time();

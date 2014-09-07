@@ -18,6 +18,7 @@ $(window).load(function() {
                 <span>Here you can set various website settings. </span>
             </div>
             <div class="subnavtitle">
+            <a href="<?php echo site_url('administration/maintenance'); ?>" title="" class="button blueB" style="margin: 5px;"><span>Maintenance</span></a>
             <a href="javascript:;" title="" class="button redB" style="margin: 5px;" onclick="$('form#settings').submit();"><span>Save Settings</span></a>
             </div>
             <div class="clear"></div>
