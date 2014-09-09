@@ -5,7 +5,7 @@ Purpose of this community is to provide support for Instant Update CMS. We often
 The Difference from others
 --------------
 
-Instant Update is not based on any templates. **Your HTML is your template.** 
+Instant Update is based on NO template structure. **Your HTML is your template.** 
 
 As HTML elements may have unique ID attribute set, our choice was to use HTML IDs to mark editable regions. This is all done on the fly. That means that Instant Update recognizes all IDs automatically.
 
