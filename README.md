@@ -1,4 +1,3 @@
-Purpose of this community is to provide support for Instant Update CMS. We often share free stuff so keep up.
 
 **[Instant Update][3] is free Open Source PHP/MySQL Content Management System (CMS).** 
 
