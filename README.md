@@ -1,6 +1,6 @@
 Purpose of this community is to provide support for Instant Update CMS. We often share free stuff so keep up.
 
-**Instant Update is free Open Source PHP/MySQL Content Management System (CMS).** 
+**[Instant Update][3] is free Open Source PHP/MySQL Content Management System (CMS).** 
 
 The Difference from others
 --------------
@@ -37,3 +37,4 @@ http://my.instant-update.com/t/instant-update-installation/29
 
   [1]: http://instant-update.com/cms/
   [2]: https://github.com/InstantUpdate/CMS/archive/master.zip
+  [3]: http://instant-update.com/
