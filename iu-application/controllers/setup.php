@@ -11,6 +11,7 @@ class Setup extends CI_Controller {
 
 	//set requirements [requirement name=>required?]
 	private $require_writable_files = array("installed.txt"=>true, 'iu-assets/'=>true, 'iu-application/cache/'=>true, 'iu-resources/geoip/'=>true, 'iu-resources/images/'=>true, 'iu-resources/images/thumbs/'=>true, 'iu-resources/uploads/'=>true, 'iu-resources/uploads/thumbs/'=>true);
+	private $require_php_modules = array("GD"=>true, "cURL"=>false, "MySQL"=>true);
 	private $require_server_modules = array("mod_rewrite"=>false, "mod_env"=>false, "mod_deflate"=>false);
 	private $require_php_ini = array("allow_url_fopen"=>false);
 
