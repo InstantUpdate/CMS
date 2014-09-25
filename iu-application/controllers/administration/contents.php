@@ -87,9 +87,13 @@ class Contents extends CS_Controller {
 	{
 		$relations = array();
 
-		$uri = $this->input->post('page_uri');
-		$div_id = $this->input->post('div');
+		$uri = $this->input->post('page_uri', true);
+		$div_id = $this->input->post('div', true);
 		$contents = $this->input->post('contents');
+
+		if (defined('DEMO'))
+			$contents = str_ireplace("<script", "<noscript", $contents);
+
 		$id = (int)$this->input->post('id');
 
 		if ($uri !== false)
@@ -165,9 +169,12 @@ class Contents extends CS_Controller {
 
 		//file_put_contents('post', json_encode($_POST));
 
-		$pid = $this->input->post('pid');
+		$pid = (int)$this->input->post('pid');
 		//$div_id = $this->input->post('div');
 		$html = $this->input->post('html');
+
+		if (defined('DEMO'))
+			$html = str_ireplace("<script", "<noscript", $html);
 
 		if (!empty($pid))
 		{

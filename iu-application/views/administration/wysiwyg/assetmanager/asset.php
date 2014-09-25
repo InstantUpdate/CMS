@@ -2,9 +2,13 @@
 require "../../../../external/index.php";
 $_IU = &get_instance();
 
+if (defined('DEMO'))
+    show_error(__("This function is disabled in online demo!"));
+
 if (!$_IU->loginmanager->is_logged_in()) {
 	die('You need to be logged in to continue');
 }
+
 
 session_start();
 $_SESSION['iu_valid'] = true;

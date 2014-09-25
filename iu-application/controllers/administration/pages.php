@@ -100,18 +100,18 @@ class Pages extends CS_Controller {
 		else
 		{
 			$page = new Page();
-			$page->uri = $this->input->post('uri');
+			$page->uri = $this->input->post('uri', true);
 		}
 
-		$page->title = $this->input->post('title');
-		$page->keywords = $this->input->post('keywords');
-		$page->description = $this->input->post('description');
+		$page->title = $this->input->post('title', true);
+		$page->keywords = $this->input->post('keywords', true);
+		$page->description = $this->input->post('description', true);
 		$page->editor_id = $this->user->id;
 
 		//caching?
 		$page->custom_caching = ($this->input->post('custom_caching') == 'yes');
 		if ($page->custom_caching)
-			$page->custom_caching_duration = (int) str_replace(array(',','.'), '', $this->input->post('cache_duration'));
+			$page->custom_caching_duration = (int)str_replace(array(',','.'), '', $this->input->post('cache_duration'));
 
 		//save editors
 		$editors = $this->input->post('editors');
@@ -119,7 +119,7 @@ class Pages extends CS_Controller {
 		$not_editors_users = User::factory()->where_not_in('id', $editors)->get();
 
 		//file
-		$fid = $this->input->post('template');
+		$fid = $this->input->post('template', true);
 
 		$save2 = array();
 

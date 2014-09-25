@@ -24,7 +24,8 @@ class Templates extends CS_Controller {
 
 	public function index()
 	{
-		//$uri = implode('/', func_get_args());
+		if (defined('DEMO'))
+			show_error(__("This function is disabled in online demo!"));
 
 		$tpls = File::get_templates();
 		$this->templatemanager->assign("templatez", $tpls);
@@ -88,6 +89,9 @@ class Templates extends CS_Controller {
 
 	public function save($id)
 	{
+		if (defined('DEMO'))
+			show_error(__("This function is disabled in online demo!"));
+
 		$id = (int)$id;
 
 		$file = File::factory()->get_by_id($id);
@@ -95,7 +99,8 @@ class Templates extends CS_Controller {
 		if (!$file->exists())
 			show_error("File #{$id} does not exist!");
 
-		$contents = $this->input->post('editarea');
+		$contents = $this->input->post('editarea');;
+
 		$contents = str_replace(array('[/textarea]','[/form]'), array('</textarea>', '</form>'), $contents);
 
 		$old_html = $file->contents();

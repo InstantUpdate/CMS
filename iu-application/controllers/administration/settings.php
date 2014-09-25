@@ -51,7 +51,7 @@ class Settings extends CS_Controller {
 			$setting = Setting::factory($option);
 			if ($setting->exists())
 			{
-				$setting->set_value($this->input->post($option));
+				$setting->set_value($this->input->post($option), true);
 				$setting->save();
 			}
 		}

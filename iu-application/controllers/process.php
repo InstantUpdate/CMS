@@ -18,6 +18,9 @@ class Process extends CS_Controller {
 		//get request uri
 		$uri = $path = trim($this->uri->uri_string(), '/');
 
+		if ($path == '.htaccess')
+			show_404($path);
+
 		//if uri is empty assign index.html or index.php (if index.html doesn't exist)
 		if (empty($uri))
 		{

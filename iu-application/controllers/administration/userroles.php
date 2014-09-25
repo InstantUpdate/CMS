@@ -62,7 +62,7 @@ class UserRoles extends CS_Controller {
 
 		$role = UserRole::factory($id);
 
-		$role->name = $this->input->post('name');
+		$role->name = $this->input->post('name', true);
 		if (!$role->exists())
 			$role->save(); //save role under new name
 

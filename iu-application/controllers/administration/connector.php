@@ -9,6 +9,9 @@ class Connector extends CS_Controller {
 		//require login
 		if (!$this->loginmanager->is_logged_in())
 			redirect($this->loginmanager->login_url);
+
+		if (defined('DEMO'))
+			show_error(__("This function is disabled in online demo!"));
 	}
 
 	//jQuery FileTree connector (pass regex of allowed extensions)

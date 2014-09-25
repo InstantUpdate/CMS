@@ -58,7 +58,12 @@ class CS_Controller extends CI_Controller
 		}
 
 
-
+		//auto login for demo
+		if (defined('DEMO'))
+		{
+			$this->user = User::factory(1);
+			$this->loginmanager->user = User::factory(1);
+		}
 
 		//set current url for auth controller to know where to redirect
 		if (!$this instanceof Auth && !$this instanceof JS && !$this->is_ajax_request() && $should)
