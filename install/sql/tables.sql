@@ -478,7 +478,7 @@ ALTER TABLE `%prefix%permissions_users` ADD INDEX `permission_id` ( `permission_
 ALTER TABLE `%prefix%permissions_users` ADD INDEX `user_id` ( `user_id` ) ;
 
 ALTER TABLE `%prefix%phrases` ADD INDEX `filter` ( `filter` ) ;
-ALTER TABLE `%prefix%phrases` ADD INDEX `phrase` ( `phrase`( 512 ) ) ;
+ALTER TABLE `%prefix%phrases` ADD INDEX `phrase` ( `phrase` ) ;
 
 ALTER TABLE `%prefix%repeatableitems` ADD INDEX `user_id` ( `user_id` ) ;
 ALTER TABLE `%prefix%repeatableitems` ADD INDEX `content_id` ( `content_id` ) ;
