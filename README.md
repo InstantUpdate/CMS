@@ -8,7 +8,7 @@ Instant Update is based on NO template structure. **Your HTML is your template.*
 
 As HTML elements may have unique ID attribute set, our choice was to use HTML IDs to mark editable regions. This is all done on the fly. That means that Instant Update recognizes all IDs automatically.
 
-
+All documentation and issues are located at our community forum at: http://my.instant-update.com/
 
 
 [Test Instant Update live in action!][1]
