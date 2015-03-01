@@ -57,11 +57,11 @@ class Process extends CS_Controller {
 		}
 
 		//fix for bad linking
-		if (current_url() == site_url())
+		/*if (current_url() == site_url())
 		{
 			redirect(site_url($uri));
 			die;
-		}
+		}//*/
 
 		//get page
 		$this->page = $page = Page::factory()->get_by_uri($uri);
