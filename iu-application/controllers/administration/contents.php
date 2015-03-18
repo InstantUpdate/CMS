@@ -309,7 +309,7 @@ class Contents extends CS_Controller {
 		redirect('administration/contents/edit/'.$content->id.'/'.$content->div);
 	}
 
-	public function remove($cid, $back_to = 'pages')
+	public function remove($cid, $back_to = null)
 	{
 		$c = Content::factory((int)$cid);
 
