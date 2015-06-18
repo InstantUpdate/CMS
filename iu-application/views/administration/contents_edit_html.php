@@ -109,8 +109,11 @@ body div {
 <?php endif; ?>
 					<div class="widget">
 						<div class="title"><h6>Edit content "<?php echo $content->div; ?>"</h6></div>
-                        <div class="formRow">
-						<textarea class="notranslate" id="wysiwyg-editor" name="wysiwyg-editor" style="font-family: Monospace; font-size: 12px; width: 100%; height: <?php echo ($template->config['in_popup']) ? "300" : "500" ;?>px"><?=(empty($content)) ? "" : str_replace(array('<form', '<textarea', '</textarea>', '</form>'), array('[iu_form', '[iu_textarea', '[/iu_textarea]', '[/iu_form]'), $content->contents) ?></textarea>
+                      		<div class="formRow">
+								<textarea class="notranslate" id="wysiwyg-editor" name="wysiwyg-editor" style="font-family: Monospace; font-size: 12px; width: 100%; height: <?php echo ($template->config['in_popup']) ? "300" : "500" ;?>px"><?=(empty($content)) ? "" : str_replace(array('<form', '<textarea', '</textarea>', '</form>'), array('[iu_form', '[iu_textarea', '[/iu_textarea]', '[/iu_form]'), $content->contents) ?></textarea>
+
+
+<!--
 <script type="text/javascript">
 var oEdit1 = new InnovaEditor("oEdit1");
 	oEdit1.width = "100%";
@@ -168,7 +171,10 @@ var oEdit1 = new InnovaEditor("oEdit1");
 
 	oEdit1.REPLACE("wysiwyg-editor");
 </script>
-					</div></div></div>
+-->
+					</div>
+				</div>
+			</div>
         </div>
 
 <?php if (!$template->config['has_header']): ?>
@@ -182,3 +188,9 @@ var oEdit1 = new InnovaEditor("oEdit1");
 
     </div>
 </form>
+
+<script type="text/javascript">
+
+CKEDITOR.replace('wysiwyg-editor');
+
+</script>
