@@ -20,7 +20,7 @@ return array(
 
 	,'base-js'=> array('../js/phpjs.js', '../js/functions.js', '../js/webfont.js', /*'../js/jquery.simplePagination.js', '../js/jquery.masonry.min.js',*/ '../js/jquery.scrollTo.min.js'/*, '../js/domready.js'*/)
 
-	,'user-js'=> array('../js/snapeditor/snapeditor.js', /*'../js/jqconfigurator.js', '../msgbox/jquery.msgbox.js',*/ '../js/jquery.jgrowl.min.js', '../icoroll/icoroll.js', '../js/instant.js')
+	,'user-js'=> array(/*'../../iu-application/views/administration/ckeditor/ckeditor.js', '../js/snapeditor/snapeditor.js', '../js/jqconfigurator.js', '../msgbox/jquery.msgbox.js',*/ '../js/jquery.jgrowl.min.js', '../icoroll/icoroll.js', '../js/instant.js')
 
 	,'base-css'=> array(/*'../css/bootstrap/bootstrap.css', '../lightbox/css/jackbox.css', '../css/simplePagination.css', '../css/buttons.css', '../css/image.css', '../msgbox/jquery.msgbox.css',*/ '../css/jquery.jgrowl.css', '../icoroll/icoroll.css', '../icoroll/dark.css', '../css/style.css')
 );

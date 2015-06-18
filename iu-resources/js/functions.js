@@ -70,15 +70,27 @@ function is_editing()
 function enable_snapeditor($el)
 {
 	var elid = $el.attr('id');
-	window.IU_SNAPS[elid].api.enable();
+	//window.IU_SNAPS[elid].api.enable();
+	CKEDITOR.inline(elid, {
+	toolbar: [
+		{ name: 'document', items: [ 'Source', '-', 'NewPage', 'Preview', '-', 'Templates' ] },	// Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
+		[ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ],			// Defines toolbar group without name.
+		'/',																					// Line break - next group will be placed in new line.
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic' ] }
+	]});
 	$el.addClass('iu-editable');
+	$el.attr('contenteditable', 'true');
 }
 
 function disable_snapeditor($el)
 {
 	var elid = $el.attr('id');
-	window.IU_SNAPS[elid].api.disable();
+	//window.IU_SNAPS[elid].api.disable();
+	var instance = CKEDITOR.instances[elid];
+	instance.destroy();
 	$el.removeClass('iu-editable');
+	$el.attr('contenteditable', 'false');
+
 }
 
 function toggle_snapeditor(highlight_all)
@@ -127,7 +139,7 @@ function toggle_snapeditor(highlight_all)
 var IU_ADV_ADDED = [];
 function iu_insert_custom_opts(id)
 {
-
+	return;
 	if (window.IU_ADV_ADDED[id] == "undefined")
 		window.IU_ADV_ADDED[id] = false;
 
@@ -814,8 +826,8 @@ function iu_newsitem_edit(what)
 		,showAlways: (IU_SETTINGS.sticky_toolbar == 'yes')
 	});//*/
 
-	window.IU_SNAPS[$iu$(what).parent().attr('id')] = new SnapEditor.InPlace($iu$(what).parent().attr('id'), window.IU_SNAPCONF);
-	alert($iu$(what).parent().attr('id'));
+	//window.IU_SNAPS[$iu$(what).parent().attr('id')] = new SnapEditor.InPlace($iu$(what).parent().attr('id'), window.IU_SNAPCONF);
+	//alert($iu$(what).parent().attr('id'));
 	//window.IU_SNAPS[textfield.attr('id')] = new SnapEditor.InPlace(textfield.attr('id'), window.IU_SNAPCONF);
 
 
