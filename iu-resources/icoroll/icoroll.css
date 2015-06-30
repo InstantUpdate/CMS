@@ -27,6 +27,7 @@ body{
 	-moz-transition:opacity 0.5s; /* Firefox 4 */
 	-webkit-transition: opacity 0.5s; /* Safari and Chrome */
 	-o-transition: opacity 0.5s; /* Opera */
+	display: none;
 }
 #scroll_tip {
 	position: absolute;
@@ -110,7 +111,8 @@ body{
 
 #scroll_menu
 {
-	height:100%;
+	/*height:100%;*/
+	
 }
 
 #scroll_menu a
