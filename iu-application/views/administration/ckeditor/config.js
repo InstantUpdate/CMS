@@ -7,7 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
-	config.skin = 'moono-dark';
+	config.skin = 'bootstrapck';
 	config.allowedContent = true;
 	config.extraPlugins = 'inlinesave,advanced,iusave,simpleuploads'; //,imagepaste
 	config.filebrowserUploadUrl = IU_SITE_URL+'/administration/assets/quick_upload';
