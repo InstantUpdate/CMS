@@ -12,4 +12,11 @@ CKEDITOR.editorConfig = function( config ) {
 	config.extraPlugins = 'inlinesave,advanced,iusave,simpleuploads'; //,imagepaste
 	config.filebrowserUploadUrl = IU_SITE_URL+'/administration/assets/quick_upload';
 	config.filebrowserImageUploadUrl = IU_SITE_URL+'/administration/assets/quick_upload';
+	CKEDITOR.config.toolbar = [
+   ['Styles','Format','Font','FontSize'],
+   '/',
+   ['Bold','Italic','Underline','StrikeThrough','-','Undo','Redo','-','Cut','Copy','Paste','Find','Replace','-','Outdent','Indent','-','Print'],
+   ['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+   ['Image','Table','-','Link','Smiley','TextColor','BGColor','Source']
+] ;
 };
