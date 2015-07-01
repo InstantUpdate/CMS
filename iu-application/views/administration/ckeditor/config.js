@@ -9,7 +9,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.uiColor = '#AADC6E';
 	config.skin = 'moono-dark';
 	config.allowedContent = true;
-	config.extraPlugins = 'inlinesave,advanced,iusave,imagepaste'; //,imagepaste
+	config.extraPlugins = 'inlinesave,advanced,iusave,simpleuploads'; //,imagepaste
 	config.filebrowserUploadUrl = IU_SITE_URL+'/administration/assets/quick_upload';
 	config.filebrowserImageUploadUrl = IU_SITE_URL+'/administration/assets/quick_upload';
 };

@@ -75,7 +75,7 @@ function enable_snapeditor($el)
 		toolbar: [
 			{ name: 'document', items: [ 'Inlinesave', '-', 'NewPage', '-', 'Templates', 'Advanced' ] },	// Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
 			[ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ],			// Defines toolbar group without name.,																					// Line break - next group will be placed in new line.
-			{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Link', 'Image' ] }
+			{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Link', 'Image', 'addFile', 'addImage' ] }
 		]
 	});
 	$el.addClass('iu-editable');
