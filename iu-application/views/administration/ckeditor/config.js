@@ -9,4 +9,5 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.uiColor = '#AADC6E';
 	config.skin = 'moono-dark';
 	config.allowedContent = true;
+	config.extraPlugins = 'inlinesave,advanced,iusave';
 };
