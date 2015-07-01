@@ -132,6 +132,8 @@ body div {
 
 <script type="text/javascript">
 
-CKEDITOR.replace('wysiwyg-editor');
+CKEDITOR.replace('wysiwyg-editor', {
+	//filebrowserUploadUrl : '/uploader/upload.php?type=Files'
+});
 
 </script>
