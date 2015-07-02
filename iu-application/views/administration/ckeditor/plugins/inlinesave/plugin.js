@@ -7,7 +7,7 @@ CKEDITOR.plugins.add( 'inlinesave',
 				exec : function( editor )
 				{
 
-					iu_quick_save(editor.editable().$);
+					iu_quick_save(editor);
 				}
 			});
 		editor.ui.addButton( 'Inlinesave',
