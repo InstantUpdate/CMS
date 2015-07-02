@@ -146,9 +146,9 @@ body{
     -moz-transition: background 0.1s ease-in-out;
     transition: background 0.1s ease-in-out;
     display: block;
-    min-height: 2.6em;
-    min-width: 2.6em;
-    line-height: 2.6em;
+    min-height: 2em;
+    min-width: 2em;
+    line-height: 2em;
     text-align: center;
     position: relative;
     cursor:pointer;

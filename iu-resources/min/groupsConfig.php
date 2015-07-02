@@ -18,9 +18,9 @@ return array(
 
     ,'admin-css'=> array('../../iu-application/views/administration/css/main.css', '../../iu-application/views/administration/css/stickymenu.css', '../../iu-application/views/administration/elfinder/css/elfinder.min.css', '../../iu-application/views/administration/elfinder/css/theme.css', '../../iu-application/views/administration/css/jquery.msgbox.css', '../../iu-application/views/administration/css/jqueryFileTree.css', '../../iu-application/views/administration/css/codemirror.css','../lightbox/css/jackbox.css')
 
-	,'base-js'=> array('../js/phpjs.js', '../js/functions.js', '../js/webfont.js', /*'../js/jquery.simplePagination.js', '../js/jquery.masonry.min.js',*/ '../js/jquery.scrollTo.min.js'/*, '../js/domready.js'*/)
+	,'base-js'=> array('../js/phpjs.js', '../js/functions.js', '../js/webfont.js', '../js/jquery.scrollTo.min.js')
 
-	,'user-js'=> array(/*'../../iu-application/views/administration/ckeditor/ckeditor.js', '../js/snapeditor/snapeditor.js', '../js/jqconfigurator.js', '../msgbox/jquery.msgbox.js',*/ '../js/jquery.jgrowl.min.js', '../icoroll/icoroll.js', '../js/instant.js')
+	,'user-js'=> array('../js/jquery.jgrowl.min.js', '../icoroll/icoroll.js', '../js/instant.js')
 
-	,'base-css'=> array(/*'../css/bootstrap/bootstrap.css', '../lightbox/css/jackbox.css', '../css/simplePagination.css', '../css/buttons.css', '../css/image.css', '../msgbox/jquery.msgbox.css',*/ '../css/jquery.jgrowl.css', '../icoroll/icoroll.css', '../icoroll/dark.css', '../css/style.css')
+	,'base-css'=> array('../css/jquery.jgrowl.css', '../icoroll/icoroll.css', '../icoroll/dark.css', '../css/style.css')
 );
