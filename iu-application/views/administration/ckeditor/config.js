@@ -8,8 +8,9 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	config.skin = 'bootstrapck';
+	config.height = '460px';
 	config.allowedContent = true;
-	config.extraPlugins = 'inlinesave,advanced,iusave,simpleuploads,youtube'; //,imagepaste
+	config.extraPlugins = 'inlinesave,advanced,iusave,simpleuploads,youtube'; 
 	config.filebrowserUploadUrl = IU_SITE_URL+'/administration/assets/quick_upload';
 	config.filebrowserImageUploadUrl = IU_SITE_URL+'/administration/assets/quick_upload';
 	CKEDITOR.config.toolbar = [
@@ -17,6 +18,6 @@ CKEDITOR.editorConfig = function( config ) {
    '/',
    ['Bold','Italic','Underline','StrikeThrough','-','Undo','Redo','-','Cut','Copy','Paste','Find','Replace','-','Outdent','Indent','-','Print'],
    ['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-   ['Image','Table','-','Link','Smiley','TextColor','BGColor','Source']
+   ['Image', 'addImage', 'addFile', 'Table','-','Link', 'Unlink', 'Smiley','TextColor','BGColor','Source', 'Youtube']
 ] ;
 };

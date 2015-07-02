@@ -73,9 +73,9 @@ function enable_snapeditor($el)
 	//window.IU_SNAPS[elid].api.enable();
 	CKEDITOR.inline(elid, {
 		toolbar: [
-			{ name: 'document', items: [ 'Inlinesave', '-', 'NewPage', '-', 'Templates', 'Advanced' ] },	// Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
+			{ name: 'document', items: [ 'Inlinesave', '-', 'Advanced' ] },	// Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
 			[ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ],			// Defines toolbar group without name.,																					// Line break - next group will be placed in new line.
-			{ name: 'basicstyles', items: [ 'Bold', 'Italic','TextColor', 'Link', 'Image', 'addImage', 'Youtube' ] }
+			{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'TextColor', 'Link', 'Unlink', 'Image', 'addImage' ] }
 		]
 	});
 	$el.addClass('iu-editable');
