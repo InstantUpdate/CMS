@@ -146,9 +146,9 @@ body{
     -moz-transition: background 0.1s ease-in-out;
     transition: background 0.1s ease-in-out;
     display: block;
-    min-height: 2em;
-    min-width: 2em;
-    line-height: 2em;
+    min-height: 2.1em;
+    min-width: 2.1em;
+    line-height: 2.1em;
     text-align: center;
     position: relative;
     cursor:pointer;
@@ -159,8 +159,9 @@ body{
 #scroll_show_menu_button
 {
 	position:fixed;
-	top:0px;
-	
+	bottom:0px;
+	background: #f6f6f6 url(icons/menu.png) no-repeat;
+	background-position: 6px 6px;
 	cursor:pointer;
 	z-index:1100;
 }
