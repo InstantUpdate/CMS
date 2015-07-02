@@ -607,20 +607,20 @@ input[type=submit], input[type=reset], input[type=button], button { padding: 7px
 .smallButton:active { background: #f2f2f2; }
 
 .basic { background-position: 0 0; color: #fff; }
-.basic:hover { background-position: 0 -28px; }
+.basic:hover { background-position: 0 -28px; background-color: #16967A; }
 .basic:active { background-position: 0 -56px; }
 
 .blueB { background-position: 0 -85px; color: #fff; }
-.blueB:hover { background-position: 0 -113px; }
+.blueB:hover { background-position: 0 -113px; background-color: #16967A; }
 .blueB:active { background-position: 0 -141px; }
 
 .redB { background-position: 0 -170px; color: #fff; background-color: #D9534F; }
-.redB:hover { background-position: 0 -198px; }
+.redB:hover { background-position: 0 -198px; background-color: #C94E4C; }
 .redB:active { background-position: 0 -226px; }
 
 
 .greyishB { background-position: 0 -255px;  color: #fff; background-color: #D9534F; }
-.greyishB:hover { background-position: 0 -283px; }
+.greyishB:hover { background-position: 0 -283px; background-color: #C94E4C; }
 .greyishB:active { background-position: 0 -311px; }
 
 .brownB { background-position: 0 -340px;  color: #fff; }
@@ -662,11 +662,11 @@ input[type=submit], input[type=reset], input[type=button], button { padding: 7px
 .orangewB:active { background-position: 0 -72px; }
 
 .redwB { background-position: 0 -109px; background-color: #D9534F;}
-.redwB:hover { background-position: 0 -145px; }
+.redwB:hover { background-position: 0 -145px; background-color: #C94E4C; }
 .redwB:active { background-position: 0 -181px; }
 
 .bluewB { background-position: 0 -218px; background-color: #18A689; }
-.bluewB:hover { background-position: 0 -254px; }
+.bluewB:hover { background-position: 0 -254px; background-color: #16967A; }
 .bluewB:active { background-position: 0 -290px; }
 
 .greenwB { background-position: 0 -327px; border: 1px solid #6d8737; }
