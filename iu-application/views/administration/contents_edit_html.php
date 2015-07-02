@@ -80,7 +80,7 @@ function save($goback, editor)
             </div>
             <div class="subnavtitle">
                         <a href="<?php echo site_url($page->uri); ?>" title="" class="button blueB" style="margin: 5px;"><span>Edit page live</span></a>
-                        <a href="javascript:;" onclick="save(false);" title="" class="button redB" style="margin: 5px;"><span>Save</span></a>
+                        <a href="javascript:;" onclick="save(false, CKEDITOR.instances['wysiwyg-editor']);" title="" class="button redB" style="margin: 5px;"><span>Save</span></a>
                                     </div>
             <div class="clear"></div>
         </div>
