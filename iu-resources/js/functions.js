@@ -586,8 +586,9 @@ function iu_advanced_edit(what)
 	//iu_popup(url, 800, $iu$(window).height() * 0.90);
 }
 
-function iu_quick_save(what)
+function iu_quick_save(editor)
 {
+	var what = editor.editable().$;
 	var contents = $iu$(what).html();
 
 	var id = $iu$(what).data('id');
@@ -605,6 +606,7 @@ function iu_quick_save(what)
 		{
 			iu_growl(data.message, "SUCCESS");
 			$iu$(what).data('id', data.id);
+			editor.resetDirty();
 			iu_cancel_edit(what);
 		}
 		else
@@ -999,4 +1001,17 @@ function iu_gallery_add_new(what)
 		iu_popup(IU_SITE_URL + "/administration/images/new_content/"+cname+"/"+page_id+"?iu-popup", 300, 400);
 	else
 		iu_popup(IU_SITE_URL + "/administration/images/gallery_add_new/"+id+"/"+cname+"/"+page_id+"?iu-popup", 300, 400);
+}
+
+function iu_warn_unsaved( e )
+{
+	var asuume = false;
+	for (i in CKEDITOR.instances)
+	{
+		if ( CKEDITOR.instances[i].checkDirty() )
+		{
+			assume = true;
+			return e.returnValue = "You will lose the changes made in the editor.";
+		}
+	}
 }

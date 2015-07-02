@@ -136,3 +136,8 @@ $iu$(window).load(function() {
 	//iu_mark_empty_repeatables();
 
 });
+
+if ( window.addEventListener )
+	window.addEventListener( 'beforeunload', iu_warn_unsaved, false );
+else
+	window.attachEvent( 'onbeforeunload', iu_warn_unsaved );
