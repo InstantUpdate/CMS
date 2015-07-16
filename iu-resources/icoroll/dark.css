@@ -17,22 +17,31 @@
  * 	Menu size
  */
 #scroll_menu {
-	font-size:20px;
+	font-size:18px;
+	font-family: "Open Sans",sans-serif;
 }
 
 /* Colors for menu elements*/
 .scroll_colors
 {
-	background:#2D2D2D;
-	color:#999;
+	background:#DFE5E9;
+	color:#7F7F7F;
 }
 
 /* 
 Style for hovered menu elements, active menu element and back button
 * */
-.scroll_menu li:hover, .scroll_menu li:hover a, .scroll_menu li:hover span,
-.scroll_menu li.current a, .scroll_menu li.current span,#scroll_back span,
+.scroll_menu li:hover, .scroll_menu li:hover a, .scroll_menu li:hover span, #scroll_back span,
 .hover_colors
+{ 
+    background: #DFE5E9;
+    color: #7F7F7F;
+    text-decoration:none;
+    
+}
+
+.scroll_menu li.current a, .scroll_menu li.current span
+
 { 
     background: #1BC4A3;
     color: #fff;

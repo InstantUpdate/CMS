@@ -70,15 +70,27 @@ function is_editing()
 function enable_snapeditor($el)
 {
 	var elid = $el.attr('id');
-	window.IU_SNAPS[elid].api.enable();
+	//window.IU_SNAPS[elid].api.enable();
+	CKEDITOR.inline(elid, {
+		toolbar: [
+			{ name: 'document', items: [ 'Inlinesave', '-', 'Advanced' ] },	// Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
+			[ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ],			// Defines toolbar group without name.,																					// Line break - next group will be placed in new line.
+			{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'TextColor', 'Link', 'Unlink', 'Image', 'addImage' ] }
+		]
+	});
 	$el.addClass('iu-editable');
+	$el.attr('contenteditable', 'true');
 }
 
 function disable_snapeditor($el)
 {
 	var elid = $el.attr('id');
-	window.IU_SNAPS[elid].api.disable();
+	//window.IU_SNAPS[elid].api.disable();
+	var instance = CKEDITOR.instances[elid];
+	instance.destroy();
 	$el.removeClass('iu-editable');
+	$el.attr('contenteditable', 'false');
+
 }
 
 function toggle_snapeditor(highlight_all)
@@ -127,7 +139,7 @@ function toggle_snapeditor(highlight_all)
 var IU_ADV_ADDED = [];
 function iu_insert_custom_opts(id)
 {
-
+	return;
 	if (window.IU_ADV_ADDED[id] == "undefined")
 		window.IU_ADV_ADDED[id] = false;
 
@@ -574,8 +586,9 @@ function iu_advanced_edit(what)
 	//iu_popup(url, 800, $iu$(window).height() * 0.90);
 }
 
-function iu_quick_save(what)
+function iu_quick_save(editor)
 {
+	var what = editor.editable().$;
 	var contents = $iu$(what).html();
 
 	var id = $iu$(what).data('id');
@@ -593,6 +606,7 @@ function iu_quick_save(what)
 		{
 			iu_growl(data.message, "SUCCESS");
 			$iu$(what).data('id', data.id);
+			editor.resetDirty();
 			iu_cancel_edit(what);
 		}
 		else
@@ -814,8 +828,8 @@ function iu_newsitem_edit(what)
 		,showAlways: (IU_SETTINGS.sticky_toolbar == 'yes')
 	});//*/
 
-	window.IU_SNAPS[$iu$(what).parent().attr('id')] = new SnapEditor.InPlace($iu$(what).parent().attr('id'), window.IU_SNAPCONF);
-	alert($iu$(what).parent().attr('id'));
+	//window.IU_SNAPS[$iu$(what).parent().attr('id')] = new SnapEditor.InPlace($iu$(what).parent().attr('id'), window.IU_SNAPCONF);
+	//alert($iu$(what).parent().attr('id'));
 	//window.IU_SNAPS[textfield.attr('id')] = new SnapEditor.InPlace(textfield.attr('id'), window.IU_SNAPCONF);
 
 
@@ -987,4 +1001,17 @@ function iu_gallery_add_new(what)
 		iu_popup(IU_SITE_URL + "/administration/images/new_content/"+cname+"/"+page_id+"?iu-popup", 300, 400);
 	else
 		iu_popup(IU_SITE_URL + "/administration/images/gallery_add_new/"+id+"/"+cname+"/"+page_id+"?iu-popup", 300, 400);
+}
+
+function iu_warn_unsaved( e )
+{
+	var asuume = false;
+	for (i in CKEDITOR.instances)
+	{
+		if ( CKEDITOR.instances[i].checkDirty() )
+		{
+			assume = true;
+			return e.returnValue = "You will lose the changes made in the editor.";
+		}
+	}
 }

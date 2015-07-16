@@ -273,7 +273,7 @@ class Process extends CS_Controller {
 		$page->embed('iu-dynamic-js/init.js', null, false);
 
 		//lightbox
-		$page->embed('http://fonts.googleapis.com/css?family=Mako', 'css');
+		//$page->embed('http://fonts.googleapis.com/css?family=Mako', 'css');
 		//$page->embed('iu-resources/lightbox/css/jackbox.css');
 		//$page->embed_IE('iu-resources/lightbox/css/jackbox-ie8.css', 'lt', 9);
 		$page->embed_IE('http://html5shiv.googlecode.com/svn/trunk/html5.js', 'lt', 9);
@@ -288,7 +288,7 @@ class Process extends CS_Controller {
 		//$page->embed('iu-resources/js/functions.js');
 
 		//embed webfont
-		$page->embed('http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
+		//$page->embed('http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
 		//$page->embed('iu-resources/js/webfont.js');
 
 		//embed jQ pagination
@@ -304,6 +304,7 @@ class Process extends CS_Controller {
 
 		if (!empty($this->user))
 		{
+			$page->embed('iu-application/views/administration/ckeditor/ckeditor.js');
 			$page->embed('iu-resources/min/?g=user-js', 'js');
 			//embed hallo (admin)
 			//$page->embed('iu-resources/js/rangy/rangy-core.js');

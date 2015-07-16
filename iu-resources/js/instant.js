@@ -107,14 +107,14 @@ $iu$(window).load(function() {
 			return;
 
 		var elid = $this.attr('id');
-		window.IU_SNAPS[elid] = new SnapEditor.InPlace(elid, window.IU_SNAPCONF);
+		/*window.IU_SNAPS[elid] = new SnapEditor.InPlace(elid, window.IU_SNAPCONF);
 
 		window.IU_SNAPS[elid].api.on("snapeditor.activate", function (e) {
 			var $el = $iu$(e.api.el);
 			iu_insert_custom_opts($el.attr('id'));
 		});
 
-		window.IU_SNAPS[elid].api.disable();
+		window.IU_SNAPS[elid].api.disable();//*/
 		//$this.addClass('iu-editable');
 
 	}); //.iu-content-html.each
@@ -136,3 +136,8 @@ $iu$(window).load(function() {
 	//iu_mark_empty_repeatables();
 
 });
+
+if ( window.addEventListener )
+	window.addEventListener( 'beforeunload', iu_warn_unsaved, false );
+else
+	window.attachEvent( 'onbeforeunload', iu_warn_unsaved );
