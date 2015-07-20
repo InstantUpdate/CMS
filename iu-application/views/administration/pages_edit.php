@@ -1,3 +1,14 @@
+<script type="text/javascript">
+
+function remove_page(id, name)
+{
+  iu_confirm('Are you sure you want to remove page "'+name+'"?\n\n<br/><br/>Note that removing page from here won`t remove page template file, only it`s reference in the database.', function() {
+    window.location.href = IU_SITE_URL + '/administration/pages/remove/'+id;
+  });
+}
+
+</script>
+
 <?php
 $saveid = (empty($page)) ? "" : "/".$page->id;
 $global_cache_time = (int)Setting::value('cache_duration', 0);
