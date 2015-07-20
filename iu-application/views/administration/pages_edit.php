@@ -78,8 +78,9 @@ function choose_template()
                 <span>Page properties are located on the left side. On the right side you can see additional options for each page.</span>
             </div>
             <div class="subnavtitle">
+            <a style="margin-left:2px !important" href="javascript:;" onclick="remove_page(<?php echo $page->id; ?>, '<?php echo str_replace("'", "`", $page->title); ?>');" class="button blueB" style="margin: 5px;"><span>Delete Page</span></a>
             	<?php if (isset($page)): ?>
-                	<a href="<?php echo site_url($page->uri); ?>" title="" class="button blueB" style="margin: 5px;" target="_blank"><span>Edit page live</span></a>
+                  <a href="<?php echo site_url($page->uri); ?>" title="" class="button blueB" style="margin: 5px;" target="_blank"><span>Edit page live</span></a>
                 <?php endif; ?>
 					<a href="javascript:;" onclick="$('#iu-page-form').submit();" title="" class="button redB" style="margin: 5px;"><span>Save</span></a>
 
