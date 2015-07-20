@@ -44,7 +44,6 @@
  }
 
 .iu-editable:hover {
-	cursor: url(../images/editcursor.png), auto !important;
 	outline: dashed 1px #000;
 
 }
