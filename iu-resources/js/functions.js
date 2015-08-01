@@ -70,7 +70,6 @@ function is_editing()
 function enable_snapeditor($el)
 {
 	var elid = $el.attr('id');
-	//window.IU_SNAPS[elid].api.enable();
 	CKEDITOR.inline(elid, {
 		toolbar: [
 			{ name: 'document', items: [ 'Inlinesave', '-', 'Advanced' ] },	// Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
@@ -85,7 +84,6 @@ function enable_snapeditor($el)
 function disable_snapeditor($el)
 {
 	var elid = $el.attr('id');
-	//window.IU_SNAPS[elid].api.disable();
 	var instance = CKEDITOR.instances[elid];
 	instance.destroy();
 	$el.removeClass('iu-editable');
@@ -98,6 +96,22 @@ function toggle_snapeditor(highlight_all)
 	if (highlight_all == "undefined")
 		highlight_all=true;
 
+	//check if editing and has unsaved
+	if (is_editing())
+	{
+		for (i in CKEDITOR.instances)
+		{
+			if ( CKEDITOR.instances[i].checkDirty() )
+			{
+				var should_continue = confirm("Unsaved changes will be lost. Really continue?");
+				if (!should_continue)
+					return;
+			}
+		}
+
+	}
+
+	//enable/disable all editors
 	$iu$(".iu-content-html").each(function () {
 
 		var $this = $iu$(this);
@@ -119,6 +133,7 @@ function toggle_snapeditor(highlight_all)
 
 	});
 
+	//notify user
 	if (is_editing())
 	{
 		$iu$('body').data('editing', 'false');
@@ -200,15 +215,10 @@ function iu_repeatable_load_page(pagenr, cname)
 		what = iu_content_type($parent);
 	}
 
-	//alert(what);
-
 	if (what == 'Repeatable')
 		var $item = $parent.find('.iu-item:first');
 	else
 		var $item = $parent.find('.iu-gallery-item:first');
-
-	//alert(typeof $item);
-	//alert($item.length);
 
 	var item_outer_html = $iu$('<div>').append($item.clone()).html();
 
@@ -516,54 +526,6 @@ function iu_content_type(what)
 }
 
 
-function iu_quick_edit(what)
-{
-	window.iu_remember[$iu$(what).attr('id')] = $iu$(what).html();
-
-	$iu$(what).hallo({
-		editable: true
-		,plugins: {
-			'halloformat': {},
-			'hallojustify': {},
-			'hallolink': {},
-			/*'halloimage': {
-				search: function(query, limit, offset, successCallback) {
-					response = {offset: offset, total: limit + 1, assets: searchresult.slice(offset, offset+limit)};
-					successCallback(response);
-				},
-				suggestions: null,
-				uploadUrl: function() {
-					return '/some/example/url'
-				}
-			},//*/
-			'halloblock': {},
-			'hallolists': {},
-			'halloreundo': {}
-		}
-		,showAlways: (IU_SETTINGS.sticky_toolbar == 'yes')
-	});
-
-	iu_highlight(what);
-
-	var jid = $iu$(what).data("jid");
-	if (jid != undefined)
-		$iu$("#"+jid).remove();
-
-	$iu$(what).jConfigurator({
-		//"width": 45,
-		"separator": "",
-		"backgroundColor": "transparent",
-		"border": "#505D14",
-		"labels":[
-			{ "name": "<a href='javascript:;' class='iu-btn-green iu-btn' title='Save content \""+$iu$(what).attr('id')+"\"'>Save</a>", "callback": iu_quick_save }
-			,{ "name": "<a href='javascript:;' class='iu-btn-red iu-btn' title='Cancel editing of \""+$iu$(what).attr('id')+"\"'>Cancel</a>", "callback": iu_reset_changes }
-
-		]
-	});
-
-}
-
-
 function iu_advanced_edit(what)
 {
 	var page_id = $iu$('body').data('id');
@@ -607,7 +569,7 @@ function iu_quick_save(editor)
 			iu_growl(data.message, "SUCCESS");
 			$iu$(what).data('id', data.id);
 			editor.resetDirty();
-			iu_cancel_edit(what);
+			//iu_cancel_edit(what);
 		}
 		else
 		{
@@ -617,37 +579,6 @@ function iu_quick_save(editor)
 	}, 'json').error(function(event, jqXHR, ajaxSettings, thrownError)
 	{
 		iu_growl("Error #" + event.statusCode() + " : " + event.responseText, "ERROR");
-	});
-
-}
-
-function iu_reset_changes(what)
-{
-	var id = $iu$(what).attr('id');
-	iu_cancel_edit(what);
-
-	$iu$(what).html(window.iu_remember[id]);
-	window.iu_remember[id] = '';
-}
-
-function iu_cancel_edit(what)
-{
-	$iu$(what).hallo({editable: false});
-
-	var jid = $iu$(what).data("jid");
-	if (jid != undefined)
-		$iu$("#"+jid).remove();
-
-	$iu$(what).jConfigurator({
-		//"width": 20,
-		"separator": "",
-		"backgroundColor": "transparent",
-		"border": "#505D14",
-		"labels":[
-			{ "name": "<a href='javascript:;' class='iu-btn' title='Edit content \""+$iu$(what).attr('id')+"\"'>Instant</a>", "callback": iu_quick_edit }
-			,{ "name": "<a href='javascript:;' class='iu-btn' title='Advanced edit content \""+$iu$(what).attr('id')+"\"'>Advanced</a>", "callback": iu_advanced_edit }
-
-		]
 	});
 
 }
@@ -668,22 +599,6 @@ function iu_growl(msg, title, sticky)
 		opts.life = 1500;
 
 	$iu$('#iu-jgrowl').jGrowl(msg, opts);
-}
-
-function iu_topmenu_hide()
-{
-	return;
-	$iu$('.iu-topNav').hide();
-	$iu$('.iu-show-menu').show();
-	$iu$('body').css('margin-top', 0);
-}
-
-function iu_topmenu_show()
-{
-	return;
-	$iu$('.iu-show-menu').hide();
-	$iu$('.iu-topNav').show();
-	$iu$('body').css('margin-top', 34);
 }
 
 function iu_count_editable_divs()
@@ -800,42 +715,8 @@ function iu_newsitem_edit(what)
 	var id = $iu$(what).find('.iu-item-id:first').val();
 	var remID = $iu$(what).parent().attr('id')+'_'+id;
 
-	/*window.iu_remember[remID] = {
-		'title': $iu$(titlefield).text()
-		,'text': $iu$(textfield).html()
-	};
-
-	window.iu_editing[remID] = true;
-
-	$iu$(titlefield).hallo({
-		editable: true
-		,plugins: {
-			'halloreundo': {}
-		}
-		,showAlways: (IU_SETTINGS.sticky_toolbar == 'yes')
-	});
-
-	$iu$(textfield).hallo({
-		editable: true
-		,plugins: {
-			'halloformat': {},
-			'hallojustify': {},
-			'hallolink': {},
-			'halloblock': {},
-			'hallolists': {},
-			'halloreundo': {}
-		}
-		,showAlways: (IU_SETTINGS.sticky_toolbar == 'yes')
-	});//*/
-
-	//window.IU_SNAPS[$iu$(what).parent().attr('id')] = new SnapEditor.InPlace($iu$(what).parent().attr('id'), window.IU_SNAPCONF);
-	//alert($iu$(what).parent().attr('id'));
-	//window.IU_SNAPS[textfield.attr('id')] = new SnapEditor.InPlace(textfield.attr('id'), window.IU_SNAPCONF);
-
-
 	iu_highlight(titlefield);
 	iu_highlight(textfield);
-
 }
 
 function iu_newsitem_cancel(what)

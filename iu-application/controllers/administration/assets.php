@@ -56,16 +56,29 @@ class Assets extends CS_Controller {
 		// in CKEditor the file is sent as 'upload'
 		if (isset($_FILES['upload']))
 		{
-			// Be careful about all the data that it's sent!!!
-			// Check that the user is authenticated, that the file isn't too big,
-			// that it matches the kind of allowed resources...
-			$name = $_FILES['upload']['name'];
-			// It doesn't care if the file already exists, it's simply overwritten.
-			move_uploaded_file($_FILES["upload"]["tmp_name"], $assetpath . $name);
-			// Build the url that should be used for this file   
-			$url = $assetbase . '/' . $name ;
-			// Usually you don't need any message when everything is OK.
-			//    $message = 'new file uploaded';   
+			$config = array();
+			$config['upload_path'] = $assetdir;
+			$config['allowed_types'] = '*';
+
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('upload'))
+			{
+				$message = $this->upload->display_errors();
+			}
+			else
+			{
+				$data = $this->upload->data();
+
+				if ((stripos(current_url(), 'instant-update.com')) && empty($data['is_image']))
+					die(json_encode($result));
+
+				$url = $assetbase . '/' . $data['file_name'] ;
+				//$result['url'] = base_url() . 'iu-assets/'.$this->user->id.'/'.$data['file_name'];
+
+				$message = 'The file has been uploaded';
+			}
+
 		}
 		else
 		{
