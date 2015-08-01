@@ -7,7 +7,7 @@ CKEDITOR.plugins.add( 'advanced',
 				exec : function( editor )
 				{
 
-					iu_advanced_edit(editor.editable().$);
+					iu_advanced_edit(editor);
 				}
 			});
 		editor.ui.addButton( 'Advanced',

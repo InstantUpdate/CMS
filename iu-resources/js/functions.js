@@ -151,27 +151,6 @@ function toggle_snapeditor(highlight_all)
 	}
 }
 
-var IU_ADV_ADDED = [];
-function iu_insert_custom_opts(id)
-{
-	return;
-	if (window.IU_ADV_ADDED[id] == "undefined")
-		window.IU_ADV_ADDED[id] = false;
-
-	var $snap = $iu$('.snapeditor_toolbar_frame:visible');
-
-	if ($snap.length < 1)
-		return false;
-
-	var $ul = $snap.find('ul:first');
-
-	if (IU_ADV_ADDED[id] != true)
-	{
-		var $div = $iu$('li.snapeditor_toolbar_divider:last')
-		$div.after($iu$("<li style=\"iu_snap_advanced\"><a class=\"iu_option_advanced snapeditor_toolbar_icon_print\" href=\"javascript:void(null);\" onclick=\"iu_advanced_edit($iu$('#"+id+"'));\" title=\"Open Advanced Editor\"></a></li>"));
-		window.IU_ADV_ADDED[id] = true;
-	}
-}
 
 function iu_GET(name)
 {
@@ -526,11 +505,19 @@ function iu_content_type(what)
 }
 
 
-function iu_advanced_edit(what)
+function iu_advanced_edit(editor)
 {
+	var what = editor.editable().$;
 	var page_id = $iu$('body').data('id');
 	var content_id = $iu$(what).data('id');
 	var content_name = $iu$(what).attr('id');
+
+	if (editor.checkDirty())
+	{
+		var should_continue = confirm("Unsaved changes will be lost. Really continue?");
+		if (!should_continue)
+			return;
+	}
 
 	var url = '';
 
