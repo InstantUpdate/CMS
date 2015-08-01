@@ -221,3 +221,4 @@ span.iu-autocomplete-uri {
 	background-position: center !important;
 }
 
+img { max-width: 100%; height: auto; }
