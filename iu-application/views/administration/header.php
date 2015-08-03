@@ -16,9 +16,7 @@ var IU_TEMPLATE_URL = '<?php echo $template->base_url(); ?>';
 
 <script type="text/javascript" src="<?php echo site_url('iu-dynamic-js/init.js'); ?>"> </script>
 <script type="text/javascript" src="<?php echo $template->base_url(); ?>js/jquery.min.js"> </script>
-<script type="text/javascript" src="<?php echo $template->base_url(); ?>wysiwyg/scripts/innovaeditor.js"> </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"> </script>
-<script type="text/javascript" src="<?php echo $template->base_url(); ?>wysiwyg/scripts/common/webfont.js"> </script>
+<script type="text/javascript" src="<?php echo $template->base_url(); ?>ckeditor/ckeditor.js"> </script>
 
 <script type="text/javascript" src="<?php echo base_url(); ?>/iu-resources/min/?g=admin-js"> </script>
 <script type="text/javascript" src="<?php echo base_url(); ?>/iu-resources/min/?g=admin-js-2"> </script>

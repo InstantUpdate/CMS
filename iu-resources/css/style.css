@@ -1,50 +1,8 @@
-.snapeditor_toolbar_frame
-{
-	z-index: 2147483645 !important;
-}
-
-.snapeditor_toolbar .snapeditor_toolbar_divider {
-    background: -moz-linear-gradient(center top , #9b9d9d, #ddd) repeat scroll 0% 0% transparent !important;
-    margin: 0px;
-    padding: 0px;
-    width: 1px;
-    height: 34px;
-}
-
-.snapeditor_toolbar ul {
-    background: -moz-linear-gradient(center top , #F5F5F5, #E6E6E6) repeat scroll 0% 0% transparent;
-    border: 1px solid #9b9d9d !important;
-    list-style: none outside none;
-    margin: 0px;
-    padding: 0px;
-    height: 34px;
-}
-
-.snapeditor_toolbar_floating {
-    z-index: 2147483647 !important;
-}
-
-.snapeditor_image_shim_buttons button {
-	display: inline-block;
-    font-size: 11px;
-    padding: .3em .3em;
-    line-height: 1.333333333;
-    font-weight: bold;
-    background-color: #2D2D2D;
-    border: 0.07143em solid #2D2D2D;
-    border-radius: .2em;
-    color: #fff;
-    margin-left: .3em;
-    margin-bottom: .3em;
-    text-decoration: none; }
-
- .snapeditor_image_shim_buttons button:hover {
-    background-color: #1BC4A3;
-    border: 0.07143em solid #1BC4A3;
- }
+/*!
+ * Instant Update - Custom CSS
+ */
 
 .iu-editable:hover {
-	cursor: url(../images/editcursor.png), auto !important;
 	outline: dashed 1px #000;
 
 }
@@ -58,128 +16,12 @@
 	display: block !important;
 }
 
-.hallolink-dialog {
-	z-index: 0;
-}
-
-img.iu-item-image, img.iu-gallery-image {
-	cursor: pointer;
-}
-
-.iu-pagination {
-	margin-top: 10px;
-	float: left;
-	width: 100%;
-}
-
 #iu-jgrowl {
 	width: 280px;
 	right: -5px;
 	top: 5px;
 	position: fixed;
 	z-index: 2147483647;
-}
-
-.iu-awesome, .iu-awesome:visited {
-	background: #222 url(../images/alert-overlay.png) repeat-x !important;
-	display: inline-block !important;
-	padding: 5px 10px 6px !important;
-	color: #fff !important;
-	text-decoration: none !important;
-	font-weight: bold !important;
-	line-height: 1 !important;
-	-moz-border-radius: 5px !important;
-	-webkit-border-radius: 5px !important;
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
-	text-shadow: 0 -1px 1px rgba(0,0,0,0.25) !important;
-	border-bottom: 1px solid rgba(0,0,0,0.25) !important;
-	position: relative !important;
-	cursor: pointer !important;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.iu-awesome:hover							{ background-color: #111 !important;}
-.iu-awesome:active							{ top: 1px !important; }
-.iu-small.iu-awesome, .iu-small.iu-awesome:visited 			{ font-size: 11px !important;}
-.iu-awesome, .iu-awesome:visited,
-.iu-medium.iu-awesome, .iu-medium.iu-awesome:visited 		{ font-size: 13px !important;}
-.iu-large.iu-awesome, .iu-large.iu-awesome:visited 			{ font-size: 14px !important; padding: 8px 14px 9px !important;}
-
-.iu-green.iu-awesome, .iu-green.iu-awesome:visited		{ background-color: #91bd09 !important;}
-.iu-green.iu-awesome:hover						{ background-color: #749a02 !important;}
-.iu-blue.iu-awesome, .iu-blue.iu-awesome:visited		{ background-color: #2daebf !important;}
-.iu-blue.iu-awesome:hover							{ background-color: #007d9a !important;}
-.iu-red.iu-awesome, .iu-red.iu-awesome:visited			{ background-color: #e33100 !important;}
-.iu-red.iu-awesome:hover							{ background-color: #872300 !important;}
-.iu-magenta.iu-awesome, .iu-magenta.iu-awesome:visited		{ background-color: #a9014b !important;}
-.iu-magenta.iu-awesome:hover							{ background-color: #630030 !important;}
-.iu-orange.iu-awesome, .iu-orange.iu-awesome:visited		{ background-color: #ff5c00 !important;}
-.iu-orange.iu-awesome:hover							{ background-color: #d45500 !important;}
-.iu-yellow.iu-awesome, .iu-yellow.iu-awesome:visited		{ background-color: #ffb515 !important;}
-.iu-yellow.iu-awesome:hover							{ background-color: #fc9200 !important;}
-
-.hallolink-dialog .linkForm input.url {
-	float:left !important;
-	width: 420px !important;
-	margin-right: 20px !important;
-	margin-top: 10px !important;
-	padding: 6px 0px 6px 0px !important;
-	border: 1px solid #ddd !important;
-	outline: 0 !important;
-	border-color: #bbb !important;
-   -webkit-box-shadow: none !important;
-   -moz-box-shadow: none !important;
-    box-shadow: none !important;
-
-}
-li.iu-autocomplete-item {
-	border-bottom: solid 1px #CCC;
-	background: #fff !important;
-
-}
-li.iu-autocomplete-item a:hover {
-	background: #efefef !important;
-
-}
-li.iu-autocomplete-item:last-child {
-	border-bottom: none !important;
-
-}
-span.iu-autocomplete-title {
-	color: #333333;
-	font-size: 12px;
-	font-weight:bold;
-	}
-span.iu-autocomplete-uri {
-	font-size: 10px;
-	color: #781900;
-}
-#addlinkButton
-{
-  border-color: #b53f3a !important;
-  border-bottom-color: #a0302a !important;
-  color: #fff !important;
-  background-color: #dc5f59 !important;
-  font: bold 11px 'Trebuchet MS' !important;
-  padding: 6px !important;
-  cursor: pointer !important;
-  -moz-border-radius: 6px !important;
-  -webkit-border-radius: 6px !important;
-  margin-top: 10px !important;
-  width: 60px !important;
-}
-#addlinkButton:hover
-{
-  border-color: #b53f3a !important;
-  border-bottom-color: #a0302a !important;
-  color: #fff !important;
-  background-color: #777 !important;
 }
 
 .ui-icon-closethick {
@@ -222,3 +64,6 @@ span.iu-autocomplete-uri {
 	background-position: center !important;
 }
 
+/* CKEditor fixing responsive images - commnet the code bellow to show full image size  */
+
+img { max-width: 100%; height: auto; }

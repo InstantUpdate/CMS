@@ -24,9 +24,17 @@
 {
   margin-left:10px;
   min-width:85px;
-  padding:0 14px 2px;
+  padding:0 14px 0px;
   height:24px;
   cursor:pointer;
+  border: none;
+  color: #fff;
+}
+
+.jquery-msgbox-buttons button:hover,
+.jquery-msgbox-buttons input:hover
+{
+background: #16967A;
 }
 
 .jquery-msgbox-inputs

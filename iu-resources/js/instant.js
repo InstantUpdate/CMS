@@ -81,43 +81,8 @@ $iu$(document).ready(function() {
 
 }); //document.ready
 
-var IU_SNAPS = [];
-var IU_SNAPCONF = {
-	path: IU_BASE_URL + "iu-resources/js/snapeditor"
-	,image: {
-		insertByUpload: true
-		,uploadURL: IU_SITE_URL+"/uploadimage?rnd="+Math.random(1,999999)
-		//,uploadParams: { param1: "abc123" }
-	}
-	,onSave: function (e) {
-		iu_quick_save(e.api.el);
-		return true;
-	}
-};
 
 $iu$(window).load(function() {
-
-	//add menu to editables
-	$iu$(".iu-content-html").each(function () {
-
-		var $this = $iu$(this)
-
-		var can_edit = ($iu$.trim($this.data('canedit')) == 'true');
-		if (!can_edit)
-			return;
-
-		var elid = $this.attr('id');
-		window.IU_SNAPS[elid] = new SnapEditor.InPlace(elid, window.IU_SNAPCONF);
-
-		window.IU_SNAPS[elid].api.on("snapeditor.activate", function (e) {
-			var $el = $iu$(e.api.el);
-			iu_insert_custom_opts($el.attr('id'));
-		});
-
-		window.IU_SNAPS[elid].api.disable();
-		//$this.addClass('iu-editable');
-
-	}); //.iu-content-html.each
 
 	$iu$('body').data('editing', 'false');
 
@@ -136,3 +101,8 @@ $iu$(window).load(function() {
 	//iu_mark_empty_repeatables();
 
 });
+
+if ( window.addEventListener )
+	window.addEventListener( 'beforeunload', iu_warn_unsaved, false );
+else
+	window.attachEvent( 'onbeforeunload', iu_warn_unsaved );

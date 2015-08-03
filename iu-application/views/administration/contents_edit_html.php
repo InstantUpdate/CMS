@@ -9,20 +9,20 @@ var resized = false;
 $(window).load(function() {
 
 	//resize the editor
-	window.setTimeout(function () {
-		if (!window.resized)
-		{
-			window.oEdit1.changeHeight($('body').height()-470);
-			window.resized = true;
-		}
-	}, 1000);
+	// window.setTimeout(function () {
+	// 	if (!window.resized)
+	// 	{
+	// 		window.oEdit1.changeHeight($('body').height()-470);
+	// 		window.resized = true;
+	// 	}
+	// }, 1000);
 
 });
 
 
-function save($goback)
+function save($goback, editor)
 {
-	var $content = window.oEdit1.getXHTMLBody();
+	var $content = editor.getData();
 
 	var editors_select = $('#editors');
 	var type = $('#type option:selected').val();
@@ -80,7 +80,7 @@ function save($goback)
             </div>
             <div class="subnavtitle">
                         <a href="<?php echo site_url($page->uri); ?>" title="" class="button blueB" style="margin: 5px;"><span>Edit page live</span></a>
-                        <a href="javascript:;" onclick="save(false);" title="" class="button redB" style="margin: 5px;"><span>Save</span></a>
+                        <a href="javascript:;" onclick="save(false, CKEDITOR.instances['wysiwyg-editor']);" title="" class="button redB" style="margin: 5px;"><span>Save</span></a>
                                     </div>
             <div class="clear"></div>
         </div>
@@ -109,66 +109,13 @@ body div {
 <?php endif; ?>
 					<div class="widget">
 						<div class="title"><h6>Edit content "<?php echo $content->div; ?>"</h6></div>
-                        <div class="formRow">
-						<textarea class="notranslate" id="wysiwyg-editor" name="wysiwyg-editor" style="font-family: Monospace; font-size: 12px; width: 100%; height: <?php echo ($template->config['in_popup']) ? "300" : "500" ;?>px"><?=(empty($content)) ? "" : str_replace(array('<form', '<textarea', '</textarea>', '</form>'), array('[iu_form', '[iu_textarea', '[/iu_textarea]', '[/iu_form]'), $content->contents) ?></textarea>
-<script type="text/javascript">
-var oEdit1 = new InnovaEditor("oEdit1");
-	oEdit1.width = "100%";
-	oEdit1.height = 300;
-
-<?php
-/*    $plugins = PluginManager::all_loaded();
-    $custom_btns = array();
-    $custom_grp_btns = array();
-    foreach ($plugins as $plugin)
-    {
-    	$ary = PluginManager::do_actions('wysiwyg.buttons', array(), array($plugin->slug));
-    	$custom_btns[] = $ary;
-    	$custom_grp_btns[] = $ary[0];
-    }
-//*/
-?>
-
-	oEdit1.arrCustomButtons = [];
-
-    oEdit1.arrCustomButtons.push(["Save", "save(false)", "Save Content", "btnSave.gif"]);
-
-<?php //foreach ($custom_btns as $btn): ?>
-	<?php //if (!empty($btn)): ?>
-	//oEdit1.arrCustomButtons.push(["<?php echo implode('", "', $btn); ?>"]);
-	<?php //endif; ?>
-<?php //endforeach; ?>
+                      		<div class="formRow">
+								<textarea class="notranslate" id="wysiwyg-editor" name="wysiwyg-editor" style="font-family: Monospace; font-size: 12px; width: 100%; height: <?php echo ($template->config['in_popup']) ? "300" : "500" ;?>px"><?=(empty($content)) ? "" : str_replace(array('<form', '<textarea', '</textarea>', '</form>'), array('[iu_form', '[iu_textarea', '[/iu_textarea]', '[/iu_form]'), $content->contents) ?></textarea>
 
 
-
-	oEdit1.groups = [
-		["group1", "", ["Bold", "Italic", "Underline", "FontDialog", "ForeColor", "TextDialog", /*"Styles",*/ "RemoveFormat"]]
-		,["group2", "", ["Bullets", "Numbering", "JustifyLeft", "JustifyCenter", "JustifyRight"]]
-		,["group3", "", ["LinkDialog", "ImageDialog", "YoutubeDialog", "HTML5Video", "TableDialog", "Emoticons"]]
-		,["group4", "", ["Undo", "Redo", "SourceDialog"]]
-		,["group5", "", ["Save"]]
-<?php //if (!empty($custom_grp_btns)): ?>
-		//,["group6", "", ["<?php echo implode('", "', $custom_grp_btns); ?>"]]
-<?php //endif; ?>
-	];//*/
-
-	oEdit1.css = '<?php echo root_url($template->base_url() . 'wysiwyg/scripts/style/awesome.css'); ?>';
-	oEdit1.returnKeyMode = 3;
-
-	oEdit1.fileBrowser = "<?php echo root_url($template->base_url() . 'wysiwyg/assetmanager/asset.php'); ?>";
-
-	var html = document.getElementById('wysiwyg-editor').value;
-	html = html.replace('[/iu_textarea]', '</'+'textar'+'ea>');
-	html = html.replace('[/iu_form]', '</'+'fo'+'rm>');
-	html = html.replace('[iu_textarea', '<'+'textar'+'ea');
-	html = html.replace('[iu_form', '<'+'fo'+'rm');
-	document.getElementById('wysiwyg-editor').value = html;
-
-	oEdit1.cleanEmptySpan = function() { return true; };
-
-	oEdit1.REPLACE("wysiwyg-editor");
-</script>
-					</div></div></div>
+					</div>
+				</div>
+			</div>
         </div>
 
 <?php if (!$template->config['has_header']): ?>
@@ -182,3 +129,11 @@ var oEdit1 = new InnovaEditor("oEdit1");
 
     </div>
 </form>
+
+<script type="text/javascript">
+
+CKEDITOR.replace('wysiwyg-editor', {
+	//filebrowserUploadUrl : '/uploader/upload.php?type=Files'
+});
+
+</script>
