@@ -593,7 +593,7 @@ function iu_count_editable_divs()
 	//check all divs with ID if they have class iu-content-*, and count them
 	var iu_editables = 0;
 
-	$iu$('div[id],ol[id],ul[id],article[id],section[id],aside[id],content[id],menu[id],nav[id]').each(function() {
+	$iu$('div[id],article[id],section[id],aside[id],content[id],menu[id],nav[id]').each(function() {
 
 		var classez = $iu$(this).attr('class');
 		if ((classez != undefined) && (classez.indexOf('iu-content-') > -1))
