@@ -14,15 +14,6 @@ class CS_Controller extends CI_Controller
 
 		//$this->output->enable_profiler(TRUE);
 
-		/*//reconstruct _GET array
-		$qs = urldecode($_SERVER['QUERY_STRING']);
-		if (strpos($qs, '?') !== FALSE)
-		{
-			$_GET = array();
-			$cqs = end(explode('?', $qs));
-			parse_str($cqs, $_GET);
-		}//*/
-
 		//check if config file is empty or it's not empty but script is not installed
 		if ((is_db_conf_empty() || !is_installed()) && !defined('CS_EXTERNAL'))
 			redirect("setup/index");
@@ -55,14 +46,6 @@ class CS_Controller extends CI_Controller
 			{
 				$should = false;
 			}
-		}
-
-
-		//auto login for demo
-		if (defined('DEMO'))
-		{
-			$this->user = User::factory(1);
-			$this->loginmanager->user = User::factory(1);
 		}
 
 		//set current url for auth controller to know where to redirect

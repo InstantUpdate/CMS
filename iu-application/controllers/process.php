@@ -349,7 +349,7 @@ class Process extends CS_Controller {
 
 		//process contents
 
-		$blocks = $page->dom()->find('div[id],ol[id],ul[id],article[id],section[id],aside[id],content[id],menu[id],nav[id]');
+		$blocks = $page->dom()->find('div[id],article[id],section[id],aside[id],content[id],menu[id],nav[id]');
 
 		//load contentparser abstract class
 		require_once("./iu-application/libraries/contentprocessor.php");
