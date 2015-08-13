@@ -384,7 +384,7 @@ CREATE TABLE IF NOT EXISTS `%prefix%users` (
   `password` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `userrole_id` int(11) NOT NULL,
-  `key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `key` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `active` tinyint(1) NOT NULL DEFAULT '0',
   `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'user.jpg',
   `created` int(11) NOT NULL,

@@ -53,15 +53,10 @@ class Process extends CS_Controller {
 			if (!is_file($p))
 				$p = rtrim($path, '/') . '/index.php';
 
-			$uri = $path = $p;
-		}
+			//$uri = $path = $p;
 
-		//fix for bad linking
-		/*if (current_url() == site_url())
-		{
-			redirect(site_url($uri));
-			die;
-		}//*/
+			redirect($p);
+		}
 
 		//get page
 		$this->page = $page = Page::factory()->get_by_uri($uri);
