@@ -152,9 +152,6 @@ class Templates extends CS_Controller {
 		if (!$file->exists())
 			show_error("File does not exist!");
 
-		if (!file_exists($path) && empty($file->data))
-			show_error("File does not exist!");
-
 		if (!is_really_writable($path))
 		{
 			$this->templatemanager->notify("This file is read-only! Any changes made will be stored in the database instead.", "warning");
