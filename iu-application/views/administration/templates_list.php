@@ -173,7 +173,7 @@ $(document).ready(function(){
 	            </thead>
 	            <tbody>
 		            <?php $l=30; foreach ($templatez as $tpl): ?>
-		            <?php if (is_file($tpl->path) || empty($tpl->data)) continue; ?>
+		            <?php if (is_file($tpl->path)) continue; ?>
 		            <tr class="gradeA">
 						<td><span<?php echo (strlen($tpl->path)>$l) ? ' class="tipW" title="'.$tpl->path.'"' : "" ; ?>><?php echo ellipsize($tpl->path, $l, .5); ?></span><span style="display: none;"><?php echo $tpl->path; ?></span></td>
 						<td class="center"><?php echo empty($tpl->updated) ? "&mdash;" : '<span class="tipN" title="'.date(Setting::value('datetime_format', 'F j, Y @ H:i'), $tpl->updated).'">'.relative_time($tpl->updated) . '</span> ' . __('by %s', User::factory($tpl->editor_id)->name); ?></td>
