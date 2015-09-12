@@ -138,6 +138,8 @@ class Templates extends CS_Controller {
 		$path = implode('/', $arr);
 		$basename = basename($path);
 
+		$file = File::factory()->get_by_path($path);
+
 		if (($basename == '.htaccess') || (strpos($path, 'iu-application') !== FALSE))
 			show_error("This file can not be edited!");
 
@@ -147,7 +149,10 @@ class Templates extends CS_Controller {
 		if (is_dir($path))
 			redirect('administration/templates');
 
-		if (!file_exists($path))
+		if (!$file->exists())
+			show_error("File does not exist!");
+
+		if (!file_exists($path) && empty($file->data))
 			show_error("File does not exist!");
 
 		if (!is_really_writable($path))
@@ -155,7 +160,6 @@ class Templates extends CS_Controller {
 			$this->templatemanager->notify("This file is read-only! Any changes made will be stored in the database instead.", "warning");
 		}
 
-		$file = File::factory()->get_by_path($path);
 
 		if (!$file->exists())
 		{
@@ -179,13 +183,9 @@ class Templates extends CS_Controller {
 		if (!is_numeric($id))
 			show_error("ID must be numeric!");
 
-		File::factory($id)->delete();
+		File::factory((int)$id)->delete();
 
 		redirect('administration/templates');
-
-		$this->templatemanager->notify_next("Template {$file->path} successfully saved.", 'success');
-
-		redirect('administration/templates/edit/'.$file->path);
 	}
 
 	public function diff($fid, $rid)
