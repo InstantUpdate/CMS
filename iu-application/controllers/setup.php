@@ -240,7 +240,7 @@ class Setup extends CI_Controller {
 
 	}
 
-	public function database()
+	public function database($dberr=false)
 	{
 
 		if (!is_db_conf_empty())
@@ -256,7 +256,10 @@ class Setup extends CI_Controller {
 			redirect("setup/help/database-config-missing");
 		}
 
-
+		if ($dberr)
+		{
+			$this->templatemanager->assign('dberror', $this->session->flashdata('dberror'));
+		}
 
 		$db_info = array();
 		$db_info["dbprefix"] = DataMapper::$config['prefix'];
@@ -291,6 +294,37 @@ class Setup extends CI_Controller {
 			redirect("setup/help/database-config-missing");
 		}
 
+		//check connection
+		if ($this->db->dbdriver == 'mysql')
+		{
+			$conn = mysql_connect($this->db->hostname, $this->db->username, $this->db->password);
+
+			if (!$conn)
+			{
+				$this->session->set_flashdata('dberror', mysql_error());
+				redirect('setup/database/error');
+			}
+			else
+			{
+				$dbsel = mysql_select_db($this->db->database);
+
+				if (!$dbsel)
+				{
+					$this->session->set_flashdata('dberror', mysql_error());
+					redirect('setup/database/error');
+				}
+			}
+		}
+		else if ($this->db->dbdriver == 'mysqli')
+		{
+			$conn = mysqli_connect($this->db->hostname, $this->db->username, $this->db->password, $this->db->database);
+
+			if (mysqli_connect_errno())
+			{
+				$this->session->set_flashdata('dberror', mysqli_connect_error());
+				redirect('setup/database/error');
+			}
+		}
 
 		//set db prefix for multiquery
 		$this->multiquery->assign('prefix', DataMapper::$config['prefix']);
