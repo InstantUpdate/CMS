@@ -163,8 +163,8 @@ class Process extends CS_Controller {
 
 			//create and fill hit
 			$hit = new Hit();
-			$hit->os = BrowserOS::get_os($user_agent);
-			$hit->browser = BrowserOS::get_browser_no_version($user_agent);
+			$hit->os = $this->browseros->get_os($user_agent);
+			$hit->browser = $this->browseros->get_browser_no_version($user_agent);
 			$hit->ip_address = $ip_address;
 			$hit->returning = !empty($cookie);
 
