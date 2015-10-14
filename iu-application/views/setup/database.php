@@ -1,5 +1,8 @@
 <h2>Database connection</h2>
 
+<?php if (isset($dberror)): ?>
+<p style="margin: 5px 0"><span style="color: red; font-weight: bold">ERROR:</span> <?php echo $dberror; ?></p>
+<?php endif; ?>
 <p>Please review your database connection information:</p>
 <p>&nbsp;</p>
 <table class="cs-table">
