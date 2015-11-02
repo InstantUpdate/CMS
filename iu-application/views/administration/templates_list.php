@@ -173,13 +173,13 @@ $(document).ready(function(){
 	            </thead>
 	            <tbody>
 		            <?php $l=30; foreach ($templatez as $tpl): ?>
-		            <?php if (is_file($tpl->path) || empty($tpl->data)) continue; ?>
+		            <?php if (is_file($tpl->path)) continue; ?>
 		            <tr class="gradeA">
 						<td><span<?php echo (strlen($tpl->path)>$l) ? ' class="tipW" title="'.$tpl->path.'"' : "" ; ?>><?php echo ellipsize($tpl->path, $l, .5); ?></span><span style="display: none;"><?php echo $tpl->path; ?></span></td>
 						<td class="center"><?php echo empty($tpl->updated) ? "&mdash;" : '<span class="tipN" title="'.date(Setting::value('datetime_format', 'F j, Y @ H:i'), $tpl->updated).'">'.relative_time($tpl->updated) . '</span> ' . __('by %s', User::factory($tpl->editor_id)->name); ?></td>
 						<td class="actBtns">
 							<a title="Edit" href="<?php echo site_url('administration/templates/edit/'.$tpl->path); ?>" class="tipN"><img src="<?php echo $template->base_url(); ?>images/icons/dark/pencil.png" alt=""></a>
-							<a title="Remove" href="#" class="tipN"><img src="<?php echo $template->base_url(); ?>images/icons/dark/close.png" alt=""></a>
+							<a title="Remove" href="<?php echo site_url('administration/templates/remove/'.$tpl->id); ?>" class="tipN"><img src="<?php echo $template->base_url(); ?>images/icons/dark/close.png" alt=""></a>
 						</td>
 					</tr>
 		            <?php endforeach; ?>

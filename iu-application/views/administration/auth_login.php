@@ -12,8 +12,6 @@
 <script type="text/javascript" src="<?php echo $template->base_url(); ?>js/plugins/spinner/ui.spinner.js"></script>
 <script type="text/javascript" src="<?php echo $template->base_url(); ?>js/plugins/spinner/jquery.mousewheel.js"></script>
 
-<script type="text/javascript" src="<?php echo $template->base_url(); ?>http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-
 <script type="text/javascript" src="<?php echo $template->base_url(); ?>js/plugins/charts/excanvas.min.js"></script>
 <script type="text/javascript" src="<?php echo $template->base_url(); ?>js/plugins/charts/jquery.sparkline.min.js"></script>
 
