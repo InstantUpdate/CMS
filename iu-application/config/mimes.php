@@ -97,6 +97,7 @@ $mimes = array(	'hqx'	=>	'application/mac-binhex40',
 				'xlsx'	=>	'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 				'word'	=>	array('application/msword', 'application/octet-stream'),
 				'xl'	=>	'application/excel',
+				'svg'   =>  array('image/svg+xml'),
 				'eml'	=>	'message/rfc822'
 			);
 
