@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-define('CS_SETUP_VERSION', '0.2.1');
+define('CS_SETUP_VERSION', '0.2.2');
 
 define('CS_CHECK_PHP_MODULE', 1);
 define('CS_CHECK_SERVER_MODULE', 2);
