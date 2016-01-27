@@ -21,7 +21,7 @@ function remove_page(id, name)
             	<?php if ($this->user->can('add_pages')): ?>
                         <a href="<?php echo site_url('administration/pages/add'); ?>" title="" class="button basic" style="margin: 5px;"><span>Create new page</span></a>
                 <?php endif; ?>
-						<a href="<?php echo site_url(); ?>" class="button blueB" style="margin: 5px;" target="_blank"><span>Edit site live</span></a>
+						<a href="<?php echo site_url(); ?>" class="button blueB" style="margin: 5px;" target="_blank"><span>Edit pages live</span></a>
 
 
             </div>
