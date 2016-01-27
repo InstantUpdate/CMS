@@ -18,7 +18,7 @@ function remove_gallery(id, name)
                 <span>Here you can manage all galleries in your website.</span>
             </div>
             <div class="subnavtitle">
-                     <a href="<?php echo site_url(); ?>" class="button blueB" style="margin: 5px;" target="_blank"><span>Edit site live</span></a>
+                     <a href="<?php echo site_url(); ?>" class="button blueB" style="margin: 5px;" target="_blank"><span>Edit pages live</span></a>
             </div>
             <div class="clear"></div>
         </div>
