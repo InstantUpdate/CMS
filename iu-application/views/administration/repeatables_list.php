@@ -18,7 +18,7 @@ function remove_repeatable(id, name)
                 <span>Certain contents on pages are marked as news/blog. These contents have repeatable items inside.</span>
             </div>
             <div class="subnavtitle">
-                     <a href="<?php echo site_url(); ?>" class="button blueB" style="margin: 5px;" target="_blank"><span>Edit site live</span></a>
+                     <a href="<?php echo site_url(); ?>" class="button blueB" style="margin: 5px;" target="_blank"><span>Edit pages live</span></a>
             </div>
             <div class="clear"></div>
         </div>
