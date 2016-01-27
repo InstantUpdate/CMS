@@ -22,8 +22,8 @@ var IU_TEMPLATE_URL = '<?php echo $template->base_url(); ?>';
 <script type="text/javascript" src="<?php echo base_url(); ?>/iu-resources/min/?g=admin-js-2"> </script>
 <script type="text/javascript" src="<?php echo site_url('iu-resources/js/functions.js'); ?>"> </script>
 
-<script src="<?php echo base_url(); ?>/iu-resources/lightbox/js/libs/Jacked.js" type="text/javascript"> </script>
-<script src="<?php echo base_url(); ?>/iu-resources/lightbox/js/jackbox.js" type="text/javascript"> </script>
+<!--<script src="<?php echo base_url(); ?>/iu-resources/lightbox/js/libs/Jacked.js" type="text/javascript"> </script>
+<script src="<?php echo base_url(); ?>/iu-resources/lightbox/js/jackbox.js" type="text/javascript"> </script>-->
 <script type="text/javascript" src="<?php echo $template->base_url(); ?>js/jquery-ui.min.js"> </script>
 
 <?php //PluginManager::do_actions('header.head'); ?>
