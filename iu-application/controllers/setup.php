@@ -67,7 +67,7 @@ class Setup extends CI_Controller {
 		switch ($type)
 		{
 			case CS_CHECK_PHP_MODULE:
-				return extension_loaded($name);
+				return ($name == "mysql") ? (extension_loaded("mysql") || extension_loaded('mysqli')) : extension_loaded($name);
 				break;
 			case CS_CHECK_SERVER_MODULE:
 				if (function_exists('apache_get_modules'))
