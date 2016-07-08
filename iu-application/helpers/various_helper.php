@@ -1,5 +1,56 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+if (!function_exists('error_404')) {
+	function error_404($pageName)
+	{
+		hook('404');
+		show_404($pageName);
+	}
+}
+
+if (!function_exists('hook')) {
+	function hook($hookName)
+	{
+		$_ci = &get_instance();
+		$_ci->pluginmanager->triggerHook($hookName);
+	}
+}
+
+if (!function_exists('filters')) {
+	function filters($filterName, $value = null)
+	{
+		$_ci     = &get_instance();
+		$filters = $_ci->pluginmanager->triggerFilter($filterName, $value);
+		return $filters->stackFilters($value);
+	}
+}
+
+if (!function_exists('flat_filters')) {
+	function flat_filters($filterName, $value = null)
+	{
+		$_ci     = &get_instance();
+		$filters = $_ci->pluginmanager->triggerFilter($filterName, $value);
+		return $filters->flattenStackFilters($value);
+	}
+}
+
+if (!function_exists('filter')) {
+	function filter($filterName, $value = null)
+	{
+		$_ci     = &get_instance();
+		$filters = $_ci->pluginmanager->triggerFilter($filterName, $value);
+		return $filters->callFilters($value);
+	}
+}
+
+if (!function_exists('plugin_page_url')) {
+	function plugin_page_url($pageSlug)
+	{
+		return site_url(CS_ADMIN_CONTROLLER_FOLDER.'/extend/'.$pageSlug);
+	}
+}
+
+
 if (!function_exists('rel2abs'))
 {
  function rel2abs($rel, $base)

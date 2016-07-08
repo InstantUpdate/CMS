@@ -23,6 +23,10 @@ class CS_Controller extends CI_Controller
 		$this->load->library('datamapper');
 		$this->load->library('translate');
 		$this->load->library('loginmanager');
+		$this->load->library('pluginmanager');
+
+		//bootstrap plugins
+		$this->pluginmanager->bootstrapActivePlugins();
 
 		//hack for datamapper prefix
 		DataMapper::$config['prefix'] = $this->db->dbprefix;
@@ -86,9 +90,7 @@ class CS_Controller extends CI_Controller
 
 	public function in_admin()
 	{
-		$object = new ReflectionObject($this);
-		$class_path = $object->getMethod('__construct')->getDeclaringClass()->getFilename();
-		return ((strpos(current_url(), CS_ADMIN_CONTROLLER_FOLDER) !== false) && (strpos($class_path, CS_ADMIN_CONTROLLER_FOLDER) !== false));
+		return (strpos(current_url(), '/'.CS_ADMIN_CONTROLLER_FOLDER) !== false);
 	}
 
 	public function http_get($url)

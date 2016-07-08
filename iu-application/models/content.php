@@ -17,6 +17,8 @@ class Content extends DataMapper {
 
 	);
 
+	public $auto_populate_has_one = true;
+
     public function __construct($id = NULL)
 	{
 		parent::__construct($id);
@@ -64,6 +66,11 @@ class Content extends DataMapper {
 			return false;
 
 		return strpos($this->contents, '<'.'?') !== false;
+	}
+
+	public function type()
+	{
+		return $this->contenttype->name;
 	}
 
 }

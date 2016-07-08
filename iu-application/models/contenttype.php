@@ -17,10 +17,7 @@ class ContentType extends DataMapper {
 		return $instance;
 	}
 
-	public static function Html()
-	{
-		return self::factory()->where('classname', 'Html')->limit(1)->get();
-	}
+
 }
 
 

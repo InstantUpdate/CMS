@@ -6,7 +6,7 @@ $route['setup'] = 'setup/index';
 $route['setup/(:any)'] = 'setup/$1';
 
 $route['administration'] = 'administration/dashboard';
-$route['administration/extend/(:any)'] = 'administration/plugins/page/$1';
+$route['administration/extend/(:any)'] = 'process/pluginPage/$1';
 $route['administration/(:any)'] = 'administration/$1';
 
 $route['iu-dynamic-js/(:any).js'] = 'js/$1';
