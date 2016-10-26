@@ -18,7 +18,7 @@ $iu$(document).ready(function() {
 		menu_items.push({'class': 'iu-icon-source', 'href': IU_SITE_URL+'/administration/templates/edit/'+$iu$.trim($iu$('body').data('template')), 'content': 'Edit Source'});
 
 
-		menu_items.push({'class': 'iu-icon-signout', 'href': 'javascript:void(0);', 'content': 'Sign Out ('+IU_USER.name+')', onClick:function($li,num){ location.href=IU_SITE_URL+'/administration/auth/logout'; } });
+		menu_items.push({'class': 'iu-icon-signout', 'href': 'javascript:window.location.href=\''+ IU_SITE_URL + '/administration/auth/logout\';', 'content': 'Sign Out (' + IU_USER.name + ')'});
 
 
 	icoroll({
