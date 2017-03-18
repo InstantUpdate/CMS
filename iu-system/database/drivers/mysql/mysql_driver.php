@@ -298,10 +298,14 @@ class CI_DB_mysql_driver extends CI_DB {
 		{
 			$str = mysql_real_escape_string($str, $this->conn_id);
 		}
-		elseif (function_exists('mysql_escape_string'))
+		elseif (function_exists('mysql_real_escape_string'))
 		{
-			$str = mysql_escape_string($str);
-		}
+            $str = mysql_real_escape_string($str); // mysql_escape_string was deprecated from 5.3
+        }
+        elseif (function_exists('mysql_escape_string'))
+        {
+            $str = mysql_escape_string($str); // deprecated from 5.3 so this is for backwards compaitability
+        }
 		else
 		{
 			$str = addslashes($str);
