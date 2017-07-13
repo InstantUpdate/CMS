@@ -453,7 +453,8 @@
 		// level and add its bits with the severity bits to find out.
 		if (($severity & error_reporting()) == $severity)
 		{
-			$_error->show_php_error($severity, $message, $filepath, $line);
+            throw new ErrorException($message, 0, $severity, $filepath, $line);
+//			$_error->show_php_error($severity, $message, $filepath, $line);
 		}
 
 		// Should we log the error?  No?  We're done...

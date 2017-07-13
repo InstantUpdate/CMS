@@ -161,7 +161,25 @@
  *
  */
 require_once FCPATH.'vendor/autoload'.EXT;
-require_once BASEPATH.'core/CodeIgniter'.EXT;
+
+try {
+//    $dotEnv = new \Dotenv\Dotenv(__DIR__);
+//    if (is_file(FCPATH.'.env')) {
+//        $dotEnv->load();
+//    }
+
+//    require_once APPPATH.'helpers/dotenv_helper.php';
+
+    require_once BASEPATH.'core/CodeIgniter'.EXT;
+} catch (Exception $exception) {
+//    if ($exception instanceof \Dotenv\Exception\InvalidPathException) {
+//        die($exception->getMessage());
+//    } elseif ($exception instanceof \Dotenv\Exception\InvalidFileException) {
+//        die($exception->getMessage());
+//    }
+
+    \CubeScripts\Exceptions\Handler::render($exception);
+}
 
 /* End of file index.php */
 /* Location: ./index.php */

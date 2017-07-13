@@ -245,7 +245,23 @@
 		show_error('Unable to load your default controller. Please make sure the controller specified in your Routes.php file is valid.');
 	}
 
-	include(APPPATH.'controllers/'.$RTR->fetch_directory().$RTR->fetch_class().EXT);
+
+	if (file_exists(APPPATH.'controllers/'.$RTR->fetch_directory().'custom/'.$RTR->fetch_class().EXT))
+	{
+		include(APPPATH.'controllers/'.$RTR->fetch_directory().'custom/'.$RTR->fetch_class().EXT);
+		$class  = $RTR->fetch_class();
+	}
+	elseif (file_exists(APPPATH.'controllers/'.$RTR->fetch_directory().'custom/MY_'.$RTR->fetch_class().EXT))
+	{
+		include(APPPATH.'controllers/'.$RTR->fetch_directory().$RTR->fetch_class().EXT);
+		include(APPPATH.'controllers/'.$RTR->fetch_directory().'custom/MY_'.$RTR->fetch_class().EXT);
+		$class  = 'MY_'.$RTR->fetch_class();
+	}
+	else
+	{
+		include(APPPATH.'controllers/'.$RTR->fetch_directory().$RTR->fetch_class().EXT);
+		$class  = $RTR->fetch_class();
+	}
 
 	// Set a mark point for benchmarking
 	$BM->mark('loading_time:_base_classes_end');
@@ -259,7 +275,7 @@
  *  loader class can be called via the URI, nor can
  *  controller functions that begin with an underscore
  */
-	$class  = $RTR->fetch_class();
+	
 	$method = $RTR->fetch_method();
 
 	if ( ! class_exists($class)

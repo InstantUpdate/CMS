@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "league/event": "^2.1"
+    "league/event": "^2.1",
+    "filp/whoops": "^2.1"
   },
   "autoload": {
     "psr-4": {
