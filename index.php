@@ -1,5 +1,6 @@
 <?php
 
+    define('APP_DEBUG', false);
 /*
  *---------------------------------------------------------------
  * PHP ERROR REPORTING LEVEL

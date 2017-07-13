@@ -26,7 +26,7 @@ class CS_Controller extends CI_Controller
 		$this->load->library('pluginmanager');
 
 		//bootstrap plugins
-		$this->pluginmanager->bootstrapActivePlugins();
+//		$this->pluginmanager->bootstrapActivePlugins();
 
 		//hack for datamapper prefix
 		DataMapper::$config['prefix'] = $this->db->dbprefix;
