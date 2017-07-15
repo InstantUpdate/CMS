@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `%prefix%contents` (
   `contenttype_id` int(11) NOT NULL DEFAULT '1',
   `is_global` tinyint(1) NOT NULL DEFAULT '0',
   `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
+  `updated` int(11) NULL,
   `editor_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
@@ -88,11 +88,11 @@ CREATE TABLE IF NOT EXISTS `%prefix%files` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `path` varchar(512) COLLATE utf8_unicode_ci NOT NULL,
   `checksum` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `data` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `data` longtext COLLATE utf8_unicode_ci NULL,
   `editor_id` int(11) NOT NULL,
   `default` int(1) NOT NULL DEFAULT '0',
   `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
+  `updated` int(11) NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `path` (`path`(333))
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `%prefix%pages` (
   `editor_id` int(11) DEFAULT NULL,
   `default` tinyint(1) NOT NULL,
   `created` int(11) NOT NULL,
-  `updated` int(11) NOT NULL,
+  `updated` int(11) NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uri` (`uri`(333))
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
@@ -424,7 +424,7 @@ DROP TABLE IF EXISTS `%prefix%images`;
 INSERT INTO `%prefix%settings` (`id`, `name`, `value`, `options`, `type`, `group`, `label`, `description`) VALUES (NULL, 'cache_duration', '0', NULL, 'text', 'general', 'Cache duration (mins)', 'Page cache duration for logged out users. Leave 0 to disable. If using PHP code in your templates it is advised not to use caching globally (leave 0) or by page.');
 
 ALTER TABLE `%prefix%pages` DROP `default` ;
-ALTER TABLE `%prefix%pages` ADD `custom_caching` TINYINT( 1 ) NOT NULL AFTER `editor_id` , ADD `custom_caching_duration` INT NOT NULL AFTER `custom_caching`;
+ALTER TABLE `%prefix%pages` ADD `custom_caching` TINYINT( 1 ) NOT NULL DEFAULT '0' AFTER `editor_id` , ADD `custom_caching_duration` INT NOT NULL DEFAULT '0' AFTER `custom_caching`;
 
 -- indexes
 

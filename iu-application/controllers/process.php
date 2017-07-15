@@ -355,63 +355,38 @@ class Process extends CS_Controller
             $ctype_class = 'Html';
 
             //if content exists in the database, get it's content type
-            if ($content->exists()) {
-                $ctype_class = $content->contenttype->get()->classname;
-                if (!in_array('iu-content-'.strtolower($ctype_class), $classes)) {
-                    $classes[] = 'iu-content-'.strtolower($ctype_class);
-                }
-                $block->class = implode(',', $classes);
-            } //otherwise, guess content type from assigned class
-            else {
+            /*if ($c->exists())
+            {
+                $ctype_class = $c->contenttype->get()->classname;
+            }
+            //otherwise, guess content type from assigned class
+            else
+            {
                 //loop over all classes and process those starting with iu-content-
-                foreach ($classes as $classname) {
+                foreach ($classes as $classname)
+                {
                     $classname = strtolower($classname);
-                    if (strpos($classname, 'iu-content-') === 0) {
+                    if (strpos($classname, 'iu-content-') === 0)
+                    {
                         $parts = explode('-', $classname);
                         if (count($parts) != 3)
                             continue;
-
                         $ctype_class = ucfirst($parts[2]);
                         break;
                     }
                 }
-
             }//*/
+            //load class if it isn't loaded
+            if (!class_exists($ctype_class))
+                require_once("./iu-application/libraries/contents/$ctype_class.php");
 
-
-            $this->pluginmanager->addFilter('process.content', function ($div, $original, $event) {
-                $content = $event->content();
-                $page    = $event->page();
-                $ctype   = $content->contenttype;
-
-//                //get classes
-//                if (empty($div->class))
-//                    $classes = array();
-//                else
-//                    $classes = explode(' ', $div->class);
-//
-//                //add editable class
-//                if (!in_array("iu-content-html", $classes))
-//                    $classes[] = "iu-content-html";
-//
-//                //apply class to div
-//                $div->class = implode(' ', $classes);
-
-                //add content
-                if ($content->exists() && !empty($content->contents) && ($content->is_related_to($page) || !empty($content->is_global))) {
-                    $div->innertext = $content->contents;
-                    $div->innertext = $content->type();
-                }
-
-                return $div;
-            });
-
-            //@TODO: reorganize code for blocks [everything should go in plugins
-
-            $block = filter('process.content', $block);
-
+            //process block
+            $instance = &get_instance();
+            $ctype = new $ctype_class($instance);
+            $block = call_user_func(array($ctype, 'process'), $block, $content, $page);
             //process via plugin
-            //$block = PluginManager::do_actions('process.content', array($block, $content, $page));
+            //$block = PluginManager::do_actions('process.content', array($block, $c, $page));
+
 
             if (is_array($block))
                 $block = $block[0];
