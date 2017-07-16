@@ -284,8 +284,9 @@ class Page extends DataMapper {
 
 	public function embed($url, $type = null, $bottom = true, $attrs = array())
 	{
+	    $parts = explode('.', $url);
 		if ($type == null)
-			$type = end(explode('.', $url));
+			$type = end($parts);
 
 		if ($type != "css")
 			$type = "js";
@@ -349,9 +350,10 @@ class Page extends DataMapper {
 			$ltgt = "gt";
 
 		$ver = (int)$ver;
+        $parts = explode('.', $url);
 
 		if ($type == null)
-			$type = end(explode('.', $url));
+			$type = end($parts);
 
 		if ($type != "css")
 			$type = "js";

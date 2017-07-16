@@ -9,7 +9,7 @@ $db['default']['database'] = '';
 
 /* DO NOT CHANGE LINES BELOW UNLESS YOU KNOW WHAT ARE YOU DOING */
 
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['dbdriver'] = extension_loaded('mysqli') ? 'mysqli' : 'mysql';
 $db['default']['dbprefix'] = 'iu4_';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = FALSE;

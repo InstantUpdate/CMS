@@ -1,0 +1,21 @@
+{
+  "name": "instantupdate/cms",
+  "description": "Instant Update CMS",
+  "type": "application",
+  "license": "gpl-2",
+  "authors": [
+    {
+      "name": "CubeScripts Media",
+      "email": "support@cubescripts.com"
+    }
+  ],
+  "require": {
+    "league/event": "^2.1",
+    "filp/whoops": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "CubeScripts\\": "iu-application/libraries/psr/"
+    }
+  }
+}

@@ -1,1 +1,13 @@
 error_log
+.tmb/
+css/
+demo/
+img/
+side/
+js/
+iu-application/cache/
+!iu-application/cache/index.html
+iu-assets/
+!iu-assets/index.html
+vendor/
+.idea/

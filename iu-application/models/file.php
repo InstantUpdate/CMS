@@ -20,7 +20,8 @@ class File extends DataMapper {
 
 	public function mime_type()
 	{
-		$ext = end(explode('.', $this->path));
+	    $parts = explode('.', $this->path);
+		$ext = end($parts);
 
 		if (in_array($ext, array('htm', 'html', 'php', 'phtml', 'php3', 'php4', 'php5', 'php5', 'php6') ))
 			return 'text/html';

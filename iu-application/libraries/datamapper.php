@@ -173,9 +173,9 @@ define('DMZ_VERSION', '1.8.0');
  * @method array csv_import() csv_import($filename, $fields = '', $header_row = TRUE, $callback = NULL) NEEDS CSV EXTENSION.  Imports a CSV file into this object.
  *
  * JSON Extension:
- * @method string to_json() to_json($fields = '', $pretty_print = FALSE) NEEDS JSON EXTENSION.  Converts this object into a JSON string.
- * @method string all_to_json() all_to_json($fields = '', $pretty_print = FALSE) NEEDS JSON EXTENSION.  Converts the all array into a JSON string.
- * @method bool from_json() from_json($json, $fields = '') NEEDS JSON EXTENSION.  Imports the values from a JSON string into this object.
+ * @method string to_json() to_json($fields = [], $pretty_print = FALSE) NEEDS JSON EXTENSION.  Converts this object into a JSON string.
+ * @method string all_to_json() all_to_json($fields = [], $pretty_print = FALSE) NEEDS JSON EXTENSION.  Converts the all array into a JSON string.
+ * @method bool from_json() from_json($json, $fields = []) NEEDS JSON EXTENSION.  Imports the values from a JSON string into this object.
  * @method void set_json_content_type() set_json_content_type() NEEDS JSON EXTENSION.  Sets the content type header to Content-Type: application/json.
  *
  * SimpleCache Extension:
@@ -389,6 +389,7 @@ class DataMapper implements IteratorAggregate {
 	 * @var mixed
 	 */
 	public $extensions = NULL;
+	public $ciConfig;
 	/**
 	 * If a query returns more than the number of rows specified here,
 	 * then it will be automatically freed after a get.
@@ -433,7 +434,7 @@ class DataMapper implements IteratorAggregate {
 		$this->_dmz_assign_libraries();
 
 		$this_class = strtolower(get_class($this));
-		$is_dmz = $this_class == 'datamapper';
+		$is_dmz = in_array($this_class, array('datamapper', 'datamappere')); // ($this_class == 'datamapper' || $this_class == 'datamappere');
 
 		if($is_dmz)
 		{
@@ -472,10 +473,10 @@ class DataMapper implements IteratorAggregate {
 			if ($is_dmz)
 			{
 				// Load config settings
-				$this->config->load('datamapper', TRUE, TRUE);
+				$this->ciConfig->load('datamapper', TRUE, TRUE);
 
 				// Get and store config settings
-				DataMapper::$config = $this->config->item('datamapper');
+				DataMapper::$config = $this->ciConfig->item('datamapper');
 
 				// now double check that all required config values were set
 				foreach(DataMapper::$_dmz_config_defaults as $config_key => $config_value)
@@ -496,9 +497,9 @@ class DataMapper implements IteratorAggregate {
 			if(!empty($this->lang_file_format))
 			{
 				$lang_file = str_replace(array('${model}', '${table}'), array($this->model, $this->table), $this->lang_file_format);
-				$deft_lang = $this->config->item('language');
+				$deft_lang = $this->ciConfig->item('language');
 				$idiom = ($deft_lang == '') ? 'english' : $deft_lang;
-				if(file_exists(APPPATH.'language/'.$idiom.'/'.$lang_file.'_lang'.EXT))
+				if(file_exists(APPPATH.'../system/language/'.$idiom.'/'.$lang_file.'_lang'.EXT))
 				{
 					$this->lang->load($lang_file, $idiom);
 				}
@@ -1653,26 +1654,30 @@ class DataMapper implements IteratorAggregate {
 					}
 
 					// Create new record
-					$this->db->insert($this->table, $data);
+                    if (!isset($data['id']) || (empty($data['id']) && !is_numeric($data['id']))) {
+                        unset($data['id']);
+                    }
 
-					if( ! $this->_force_save_as_new)
-					{
-						// Assign new ID
-						$this->id = $this->db->insert_id();
-					}
+                    $this->db->insert($this->table, $data);
 
-					$trans_complete_label[] = 'insert';
+                    if( ! $this->_force_save_as_new)
+                    {
+                        // Assign new ID
+                        $this->id = $this->db->insert_id();
+                    }
 
-					// Reset validated
-					$this->_validated = FALSE;
+                    $trans_complete_label[] = 'insert';
 
-					$result[] = TRUE;
-				}
-			}
+                    // Reset validated
+                    $this->_validated = FALSE;
 
-			$this->_refresh_stored_values();
+                    $result[] = TRUE;
+                }
+            }
 
-			// Check if a relationship is being saved
+            $this->_refresh_stored_values();
+
+            // Check if a relationship is being saved
 			if ( ! empty($object))
 			{
 				// save recursively
@@ -1695,6 +1700,12 @@ class DataMapper implements IteratorAggregate {
 		}
 
 		$this->_force_save_as_new = FALSE;
+
+        $error = $this->db->_error_message();
+        if (!empty($error)) {
+            $query = $this->check_last_query(array(), true);
+            throw new \CubeScripts\Exceptions\DatamapperSQLException($query, $error);
+        }
 
 		// If no failure was recorded, return TRUE
 		return ( ! empty($result) && ! in_array(FALSE, $result));
@@ -2412,7 +2423,7 @@ class DataMapper implements IteratorAggregate {
 			}
 			if(!empty($related_id))
 			{
-				$this->db->where($this_model . '_id', $related_id);
+				$this->db->where($this_model . '_id', (int)$related_id);
 			}
 			$this->db->from($relationship_table);
 		}
@@ -2425,7 +2436,7 @@ class DataMapper implements IteratorAggregate {
 			}
 			if(!empty($related_id))
 			{
-				$this->db->where('id', $related_id);
+				$this->db->where('id', (int)$related_id);
 			}
 			$column = $this->add_table_name($column);
 		}
@@ -5241,7 +5252,7 @@ class DataMapper implements IteratorAggregate {
 		{
 			$object = $related_field;
 			$related_field = $object->model;
-			$related_ids[] = $object->id;
+			$related_ids[] = (int)$object->id;
 			$related_properties = $this->_get_related_properties($related_field);
 		}
 		else
@@ -6293,7 +6304,7 @@ class DataMapper implements IteratorAggregate {
 		{
 			$this->lang = $CI->lang;
 			$this->load = $CI->load;
-			$this->config = $CI->config;
+			$this->ciConfig = $CI->config;
 		}
 	}
 
