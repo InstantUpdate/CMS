@@ -1,6 +1,17 @@
 <?php
 
-    define('APP_DEBUG', false);
+/*
+ *---------------------------------------------------------------
+ * DEVELOPER DEBUGGING
+ *---------------------------------------------------------------
+ *
+ * Uncomment the line below to get nice error reporting when any errors happen.
+ * This is intended for development purposes only, and must NOT be used in
+ * production environtment as it can reveal sensitive server data.
+ *
+ */
+
+    //define('IU_APP_DEBUG', true);
 /*
  *---------------------------------------------------------------
  * PHP ERROR REPORTING LEVEL

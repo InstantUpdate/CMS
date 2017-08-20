@@ -36,7 +36,7 @@ class Handler
          * Do not edit below! This will display stack trace if app is in the debug mode,
          * or just show an error message otherwise.
          */
-        if (defined('APP_DEBUG') && (APP_DEBUG == true)) {
+        if (defined('IU_APP_DEBUG') && (IU_APP_DEBUG == true)) {
             $run     = new Run;
             $handler = new PrettyPageHandler;
             $config  = get_config();
