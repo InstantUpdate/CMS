@@ -63,9 +63,13 @@ class User extends DataMapper {
 	}
 
   	public function log_in()
-    {
+    	{
         // backup username for invalid logins
         $uname = $this->email;
+		
+	if (empty($uname)) {
+		return false;
+	}
 
         // Create a temporary user object
         $u = new User();
