@@ -263,7 +263,7 @@ class Auth extends CS_Controller {
 		$template = parse_template($template, $vars);
 
 		//send email
-		$this->email->to("$email");
+		$this->email->to($u->email);
 		$this->email->subject(__("%s password reset", Setting::value('website_title', CS_PRODUCT_NAME), 'email'));
 		$this->email->message($template);
 		$this->email->set_alt_message(strip_tags($template));
